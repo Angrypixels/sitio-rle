@@ -32,6 +32,8 @@ export function cargar() {
       id: a.id, tipo: a.tipo, estado, visible,
       // el nombre solo sale si el aliado está vinculado y autorizó publicarlo
       nombre: visible ? a.nombre : null, sigla: visible ? a.sigla : null, logo: visible ? a.logo : null,
+      // nombre corto para listas y novedades: la sigla si existe
+      corto: visible ? a.sigla || a.nombre : null,
       compromisos: suyos.length, cumplidos,
       indicadores: [...new Set(suyos.map((c) => c.indicador_id))].sort(),
       roles: config.roles.map((r) => r.id).filter((r) => suyos.some((c) => c.rol === r)),
@@ -57,7 +59,7 @@ export function cargar() {
           : cumplidos === asignados.length ? 'cumplido'
           : asignados.some((c) => c.estado === 'trabajando' || c.estado === 'cumplido') ? 'trabajando'
           : asignados.some((c) => c.estado === 'vinculado') ? 'vinculado' : 'sin_vincular',
-        compromisos: asignados.map((c) => ({ estado: c.estado, plazo: c.plazo, aliado: porId[c.aliado_id]?.nombre ?? null }))
+        compromisos: asignados.map((c) => ({ estado: c.estado, plazo: c.plazo, aliado: porId[c.aliado_id]?.corto ?? null }))
           .sort((a, b) => ORDEN[a.estado] - ORDEN[b.estado]),
       };
     });
@@ -78,7 +80,7 @@ export function cargar() {
 
   const hitos = hitosRaw
     .filter((h) => h.publicar.toLowerCase() === 'si' && porId[h.aliado_id]?.visible)
-    .map((h) => ({ ...h, aliado: porId[h.aliado_id].nombre, indicador: config.indicadores.find((i) => i.id === h.indicador_id) }))
+    .map((h) => ({ ...h, aliado: porId[h.aliado_id].corto, indicador: config.indicadores.find((i) => i.id === h.indicador_id) }))
     .sort((a, b) => b.fecha.localeCompare(a.fecha));
 
   indicadores.forEach((ind) => { ind.hitos = hitos.filter((h) => h.indicador_id === ind.id); });
@@ -87,7 +89,7 @@ export function cargar() {
   const CAMPOS = ['personas', 'mujeres', 'hombres', 'sexo_otro_nr', 'edad_18_29', 'edad_30_59', 'edad_60_mas', 'indigena', 'afrodescendiente', 'etnico_ninguno', 'etnico_nr'];
   const sumar = (lista) => Object.fromEntries(CAMPOS.map((c) => [c, lista.reduce((s, a) => s + num(a.personas?.[c]), 0)]));
   const vinculados = aliados.filter((a) => a.estado !== 'sin_vincular');
-  const tipos = ['gobierno', 'instituto', 'plataforma', 'academia', 'sociedad_civil'].map((id) => {
+  const tipos = ['gobierno', 'autoridad', 'instituto', 'plataforma', 'academia', 'sociedad_civil', 'cooperacion'].map((id) => {
     const lista = vinculados.filter((a) => a.tipo === id);
     return { id, aliados: lista, n: lista.length, roles: config.roles.filter((r) => lista.some((a) => a.roles.includes(r.id))), personas: sumar(lista.filter((a) => a.visible)) };
   }).filter((t) => t.n);

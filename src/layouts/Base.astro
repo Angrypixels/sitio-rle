@@ -23,6 +23,7 @@ const nav = [['indice', ruta(lang)], ['indicadores', ruta(lang, 'indicadores')],
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{titulo ? `${titulo} · ${t.sitio}` : `${t.sitio} · ${t.sub}`}</title>
     <meta name="description" content={t.heroTitulo} />
+    <link rel="icon" type="image/svg+xml" href={recurso('favicon.svg')} />
     <link rel="alternate" hreflang={otro} href={ruta(otro, pagina)} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

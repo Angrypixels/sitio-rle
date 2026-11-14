@@ -65,8 +65,9 @@ const visibles = d.aliados.filter((a) => a.visible);
         <div class="tarjetas">
           {visibles.map((a) => (
             <article id={a.id.toLowerCase()} class={`tarjeta t-${a.estado}`}>
-              <div class="logo">{a.logo ? <img src={recurso(`img/aliados/${a.logo}`)} alt="" /> : <span>{a.sigla || 'logo'}</span>}</div>
-              <h3>{a.nombre}</h3>
+              <div class="logo">{a.logo ? <img src={recurso(`img/aliados/${a.logo}`)} alt="" /> : <span>logo</span>}</div>
+              <h3>{a.corto}</h3>
+              {a.sigla && <div class="largo">{a.nombre}</div>}
               <div class="meta">{t.tipoAliado1[a.tipo]}</div>
               <div class="estado"><i class={`e-${a.estado}`} />{t.estado1[a.estado]} · {t.comp(a.compromisos, a.cumplidos)}</div>
               <div class="nums">{a.detalle.map((x) => <b title={x.indicador[lang]}>{x.indicador.id}</b>)}</div>

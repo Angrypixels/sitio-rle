@@ -34,7 +34,7 @@ Variables de entorno:
 ## Estructura de la hoja
 
 **aliados**: `id, nombre, sigla, tipo, logo, publicar, personas, mujeres, hombres, sexo_otro_nr, edad_18_29, edad_30_59, edad_60_mas, indigena, afrodescendiente, etnico_ninguno, etnico_nr`. Puede tener más columnas (punto focal, correo, nivel de relación, nivel de compromiso): el sitio las ignora.
-`tipo`: `gobierno`, `instituto`, `plataforma`, `academia`, `sociedad_civil`.
+`tipo`: `gobierno`, `autoridad`, `instituto`, `plataforma`, `academia`, `sociedad_civil`, `cooperacion`. `sigla` es el nombre corto que se muestra en listas y novedades.
 
 **compromisos**: `id, aliado_id, indicador_id, rol, estado, plazo`.
 `rol`: `aporta`, `prepara`, `calcula`, `valida`, `reporta`. `estado`: `sin_vincular`, `vinculado`, `trabajando`, `cumplido`.
@@ -55,6 +55,5 @@ Para pasarlo a WCMC: apuntar un subdominio de `monitoring-support.org` a Cloudfl
 
 - Ilustración de la portada: guardar como `public/img/ilustracion-portada.png` (PNG con transparencia) y aparece sola.
 - Suscripción por correo en Novedades (el formulario está inactivo).
-- Íconos definitivos de los cinco roles (`src/components/Icono.astro`).
 - Íconos de los indicadores en SVG y logos de los aliados.
 - Tipografías alojadas en el sitio en vez de Google Fonts.

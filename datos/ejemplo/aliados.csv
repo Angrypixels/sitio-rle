@@ -1,23 +1,24 @@
-id,nombre,sigla,tipo,logo,publicar,punto_focal,correo,personas,mujeres,hombres,sexo_otro_nr,edad_18_29,edad_30_59,edad_60_mas,indigena,afrodescendiente,etnico_ninguno,etnico_nr
-A01,Aliado 01,,gobierno,,si,Nombre Apellido,privado@ejemplo.org,8,4,4,0,2,5,1,0,0,7,1
-A02,Aliado 02,,instituto,,si,Nombre Apellido,privado@ejemplo.org,12,7,5,0,2,9,1,0,0,11,1
-A03,Aliado 03,,instituto,,si,Nombre Apellido,privado@ejemplo.org,8,3,5,0,2,5,1,0,1,6,1
-A04,Aliado 04,,instituto,,si,Nombre Apellido,privado@ejemplo.org,14,7,7,0,3,10,1,0,0,13,1
-A05,Aliado 05,,plataforma,,si,Nombre Apellido,privado@ejemplo.org,9,5,4,0,2,6,1,0,1,7,1
-A06,Aliado 06,,academia,,si,Nombre Apellido,privado@ejemplo.org,7,4,3,0,1,5,1,0,1,5,1
-A07,Aliado 07,,academia,,si,Nombre Apellido,privado@ejemplo.org,13,6,7,0,3,9,1,0,0,12,1
-A08,Aliado 08,,sociedad_civil,,si,Nombre Apellido,privado@ejemplo.org,5,2,3,0,1,3,1,1,0,3,1
-A09,Aliado 09,,gobierno,,si,Nombre Apellido,privado@ejemplo.org,15,8,7,0,3,10,2,0,1,12,2
-A10,Aliado 10,,instituto,,si,Nombre Apellido,privado@ejemplo.org,7,4,3,0,1,5,1,0,0,6,1
-A11,Aliado 11,,instituto,,si,Nombre Apellido,privado@ejemplo.org,11,7,4,0,2,8,1,1,1,8,1
-A12,Aliado 12,,instituto,,si,Nombre Apellido,privado@ejemplo.org,13,7,6,0,3,9,1,0,1,11,1
-A13,Aliado 13,,plataforma,,si,Nombre Apellido,privado@ejemplo.org,13,6,7,0,3,9,1,0,0,12,1
-A14,Aliado 14,,academia,,si,Nombre Apellido,privado@ejemplo.org,15,9,6,0,3,10,2,0,1,12,2
-A15,Aliado 15,,academia,,si,Nombre Apellido,privado@ejemplo.org,14,9,5,0,3,10,1,1,0,12,1
-A16,Aliado 16,,sociedad_civil,,si,Nombre Apellido,privado@ejemplo.org,4,2,2,0,1,3,0,0,1,3,0
-A17,Aliado 17,,gobierno,,si,Nombre Apellido,privado@ejemplo.org,4,2,2,0,1,3,0,0,1,3,0
-A18,Aliado 18,,instituto,,si,Nombre Apellido,privado@ejemplo.org,16,7,9,0,3,11,2,0,1,13,2
-A19,Aliado 19,,instituto,,si,Nombre Apellido,privado@ejemplo.org,11,6,5,0,2,8,1,1,1,8,1
-A20,Aliado 20,,instituto,,si,Nombre Apellido,privado@ejemplo.org,13,8,5,0,3,9,1,0,1,11,1
-A21,Aliado 21,,plataforma,,si,Nombre Apellido,privado@ejemplo.org,5,2,3,0,1,3,1,0,1,3,1
-A22,Aliado 22,,academia,,si,Nombre Apellido,privado@ejemplo.org,8,5,3,0,2,5,1,0,1,6,1
+id,nombre,sigla,tipo,logo,publicar,personas,mujeres,hombres,sexo_otro_nr,edad_18_29,edad_30_59,edad_60_mas,indigena,afrodescendiente,etnico_ninguno,etnico_nr
+A01,"Ministerio de Ambiente y Desarrollo Sostenible, Dirección de Bosques, Biodiversidad y Servicios Ecosistémicos",Minambiente · DBBSE,gobierno,,si,8,4,4,0,2,5,1,0,0,7,1
+A02,"Ministerio de Ambiente y Desarrollo Sostenible, Dirección de Asuntos Marinos, Costeros y Recursos Acuáticos",Minambiente · DAMCRA,gobierno,,si,12,7,5,0,2,9,1,0,0,11,1
+A03,"Ministerio de Ambiente y Desarrollo Sostenible, Grupo implementador del PAB",Minambiente · PAB,gobierno,,si,8,3,5,0,2,5,1,0,1,6,1
+A04,Departamento Nacional de Planeación,DNP,gobierno,,si,14,7,7,0,3,10,1,0,0,13,1
+A05,Ministerio de Agricultura y Desarrollo Rural,Minagricultura,gobierno,,si,9,5,4,0,2,6,1,0,1,7,1
+A06,Departamento Administrativo Nacional de Estadística,DANE,gobierno,,si,7,4,3,0,1,5,1,0,1,5,1
+A07,Instituto Geográfico Agustín Codazzi,IGAC,gobierno,,si,13,6,7,0,3,9,1,0,0,12,1
+A08,Parques Nacionales Naturales de Colombia,PNN,autoridad,,si,5,2,3,0,1,3,1,1,0,3,1
+A09,Autoridad Nacional de Licencias Ambientales,ANLA,autoridad,,si,15,8,7,0,3,10,2,0,1,12,2
+A10,Autoridad Nacional de Acuicultura y Pesca,AUNAP,autoridad,,si,7,4,3,0,1,5,1,0,0,6,1
+A11,Instituto de Investigación de Recursos Biológicos Alexander von Humboldt,Instituto Humboldt,instituto,,si,11,7,4,0,2,8,1,1,1,8,1
+A12,"Instituto de Hidrología, Meteorología y Estudios Ambientales",IDEAM,instituto,,si,13,7,6,0,3,9,1,0,1,11,1
+A13,Instituto de Investigaciones Marinas y Costeras José Benito Vives de Andréis,INVEMAR,instituto,,si,13,6,7,0,3,9,1,0,0,12,1
+A14,Instituto Amazónico de Investigaciones Científicas,SINCHI,instituto,,si,15,9,6,0,3,10,2,0,1,12,2
+A15,Instituto de Investigaciones Ambientales del Pacífico John von Neumann,IIAP,instituto,,si,14,9,5,0,3,10,1,1,0,12,1
+A16,Corporación Colombiana de Investigación Agropecuaria,AGROSAVIA,instituto,,si,4,2,2,0,1,3,0,0,1,3,0
+A17,Sistema de Información sobre Biodiversidad de Colombia,SiB Colombia,plataforma,,si,4,2,2,0,1,3,0,0,1,3,0
+A18,Pontificia Universidad Javeriana,Javeriana,academia,,si,16,7,9,0,3,11,2,0,1,13,2
+A19,The Nature Conservancy,TNC,sociedad_civil,,si,11,6,5,0,2,8,1,1,1,8,1
+A20,Conservación Internacional,CI,sociedad_civil,,si,13,8,5,0,3,9,1,0,1,11,1
+A21,Fundación para la Conservación y el Desarrollo Sostenible,FCDS,sociedad_civil,,si,5,2,3,0,1,3,1,0,1,3,1
+A22,Unión Internacional para la Conservación de la Naturaleza,UICN,cooperacion,,si,8,5,3,0,2,5,1,0,1,6,1
+A23,Programa de las Naciones Unidas para el Desarrollo,PNUD,cooperacion,,si,8,4,4,0,2,5,1,1,1,5,1
