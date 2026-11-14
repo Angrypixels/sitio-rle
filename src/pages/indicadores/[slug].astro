@@ -1,0 +1,7 @@
+---
+import C from '../../components/Ficha.astro';
+import cfg from '../../../datos/indicadores.json';
+export const getStaticPaths = () => cfg.indicadores.map((i) => ({ params: { slug: i.slug } }));
+const { slug } = Astro.params;
+---
+<C lang="es" slug={slug} />

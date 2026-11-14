@@ -1,0 +1,16 @@
+{
+  "name": "sitio-rle",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "sync": "node scripts/sincronizar.mjs",
+    "build": "astro build",
+    "publicar": "npm run sync && npm run build",
+    "preview": "astro preview",
+    "ejemplo": "node scripts/generar-ejemplo.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.4.12"
+  }
+}

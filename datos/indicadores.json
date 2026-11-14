@@ -1,0 +1,25 @@
+{
+  "roles": [
+    { "id": "aporta", "es": "Aporta", "en": "Provides", "largo_es": "Fuente de datos", "largo_en": "Data source" },
+    { "id": "prepara", "es": "Prepara", "en": "Prepares", "largo_es": "Acopio y preparación de datos", "largo_en": "Data collection and preparation" },
+    { "id": "calcula", "es": "Calcula", "en": "Calculates", "largo_es": "Cálculo del indicador", "largo_en": "Indicator calculation" },
+    { "id": "valida", "es": "Valida", "en": "Validates", "largo_es": "Validación del cálculo", "largo_en": "Validation" },
+    { "id": "reporta", "es": "Reporta", "en": "Reports", "largo_es": "Seguimiento y reporte", "largo_en": "Monitoring and reporting" }
+  ],
+  "criterios": [
+    { "id": "AB", "es": "Reducción de distribución · Distribución restringida", "en": "Reduction in distribution · Restricted distribution", "letras": "A · B" },
+    { "id": "C", "es": "Degradación abiótica", "en": "Abiotic degradation", "letras": "C" },
+    { "id": "D", "es": "Disrupción biótica", "en": "Biotic disruption", "letras": "D" },
+    { "id": "E", "es": "Análisis cuantitativo", "en": "Quantitative analysis", "letras": "E" }
+  ],
+  "indicadores": [
+    { "id": 1, "slug": "ecosistemas-naturales", "criterio": "AB", "tipo": "MGKM", "es": "Extensión de ecosistemas naturales", "en": "Extent of natural ecosystems", "corto_es": "Ecosist. naturales", "corto_en": "Natural ecosyst." },
+    { "id": 2, "slug": "aguas-continentales", "criterio": "AB", "tipo": "Nacional", "es": "Extensión de ecosistemas de aguas continentales", "en": "Extent of inland water ecosystems", "corto_es": "Aguas cont.", "corto_en": "Inland waters" },
+    { "id": 3, "slug": "representatividad", "criterio": "AB", "tipo": "Nacional", "es": "Representatividad de ecosistemas de aguas continentales", "en": "Representativeness of inland water ecosystems", "corto_es": "Represent.", "corto_en": "Represent." },
+    { "id": 4, "slug": "regulacion-hidrica", "criterio": "C", "tipo": "MGKM", "es": "Servicio ecosistémico de regulación hídrica", "en": "Water regulation ecosystem service", "corto_es": "Reg. hídrica", "corto_en": "Water reg." },
+    { "id": 5, "slug": "invasoras", "criterio": "D", "tipo": "MGKM", "es": "Tasa de establecimiento de especies invasoras", "en": "Rate of invasive alien species establishment", "corto_es": "Invasoras", "corto_en": "Invasives" },
+    { "id": 6, "slug": "rli", "criterio": "D", "tipo": "MGKM", "es": "RLi · Índice de lista roja de especies", "en": "RLI · Red List Index of species", "corto_es": "RLi", "corto_en": "RLI" },
+    { "id": 7, "slug": "polinizacion", "criterio": "D", "tipo": "MGKM", "es": "Servicio ecosistémico de polinización", "en": "Pollination ecosystem service", "corto_es": "Polinización", "corto_en": "Pollination" },
+    { "id": 8, "slug": "beri", "criterio": "E", "tipo": "MGKM", "es": "BERI · Índice de resiliencia ecosistémica bioclimática", "en": "BERI · Bioclimatic Ecosystem Resilience Index", "corto_es": "BERI", "corto_en": "BERI" }
+  ]
+}

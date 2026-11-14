@@ -1,0 +1,147 @@
+---
+// Aliados: vista de compromisos y vista aparte de quiénes participan.
+import Base from '../layouts/Base.astro';
+import { cargar } from '../lib/datos.js';
+import { textos, recurso, ruta } from '../lib/i18n.js';
+const { lang = 'es' } = Astro.props;
+const t = textos[lang];
+const d = cargar();
+const ESTADOS = ['cumplido', 'trabajando', 'vinculado', 'sin_vincular'];
+const DIMS = {
+  sexo: [['mujeres', '#C1794F'], ['hombres', '#5C7A8A'], ['sexo_otro_nr', '#cbc7b6']],
+  edad: [['edad_18_29', '#8A9A7E'], ['edad_30_59', '#5C7A8A'], ['edad_60_mas', '#C2A25E']],
+  etnico: [['indigena', '#C1794F'], ['afrodescendiente', '#C2A25E'], ['etnico_ninguno', '#8A9A7E'], ['etnico_nr', '#cbc7b6']],
+};
+const grupos = [{ id: 'todos', nombre: t.todos, n: d.personas.n, p: d.personas }, ...d.tipos.filter((x) => x.personas.personas).map((x) => ({ id: x.id, nombre: t.tipoAliado[x.id], n: x.aliados.filter((a) => a.visible).length, p: x.personas }))];
+const visibles = d.aliados.filter((a) => a.visible);
+---
+<Base lang={lang} seccion="aliados" pagina="aliados" titulo={t.nav.aliados} esEjemplo={d.esEjemplo}>
+  <div class="pestanas" data-tabs="vista">
+    <div class="cont" role="tablist">
+      <button role="tab" data-tab="compromisos" aria-selected="true">{t.tabs.compromisos}</button>
+      <button role="tab" data-tab="quienes" aria-selected="false">{t.tabs.quienes}</button>
+    </div>
+  </div>
+
+  <div data-panel="vista:compromisos">
+    <section class="seccion">
+      <div class="cont">
+        <div class="resumen">
+          <div>
+            <h1 class="num enorme">{t.aliadosTit(d.actores.aliados, d.actores.total)}</h1>
+            <p>{t.aliadosSub}</p>
+          </div>
+          <div>
+            <div class="waffle" aria-hidden="true">{d.aliados.map((a) => <i class={`e-${a.estado}`} />)}</div>
+            <ul class="ley">{ESTADOS.map((e) => <li><i class={`e-${e}`} /><b>{d.actores[e]}</b> {t.estados[e]}</li>)}</ul>
+          </div>
+        </div>
+
+        <h2 class="sub">{t.composicion}</h2>
+        <div class="tabla">
+          {d.tipos.map((tp) => (
+            <div class="reng">
+              <div class="nom">{t.tipoAliado[tp.id]}</div>
+              <div class="cuad">{tp.aliados.map((a) => <i class={`e-${a.estado}`} />)}<b>{tp.n}</b></div>
+              <div class="rol">{tp.roles.map((r) => r[lang]).join(' · ')}</div>
+            </div>
+          ))}
+        </div>
+
+        <h2 class="sub">{t.porIndicador}</h2>
+        <div class="tabla">
+          {d.indicadores.map((ind) => (
+            <div class="reng ind">
+              <div class="nom con-id"><b>{ind.id}</b><span>{ind[lang]}<small>{t.criterio} {d.config.criterios.find((c) => c.id === ind.criterio).letras}</small></span></div>
+              <div class="apilada">
+                {ESTADOS.filter((e) => ind.porEstado[e]).map((e) => <span class={`e-${e}`} style={`flex:${ind.porEstado[e]}`} title={t.estado1[e]}>{ind.porEstado[e]}</span>)}
+              </div>
+              <div class="rol">{t.nAliados(ind.nAliados)}</div>
+            </div>
+          ))}
+        </div>
+
+        <h2 class="sub">{t.nav.aliados}</h2>
+        <div class="tarjetas">
+          {visibles.map((a) => (
+            <article id={a.id.toLowerCase()} class={`tarjeta t-${a.estado}`}>
+              <div class="logo">{a.logo ? <img src={recurso(`img/aliados/${a.logo}`)} alt="" /> : <span>{a.sigla || 'logo'}</span>}</div>
+              <h3>{a.nombre}</h3>
+              <div class="meta">{t.tipoAliado1[a.tipo]}</div>
+              <div class="estado"><i class={`e-${a.estado}`} />{t.estado1[a.estado]} · {t.comp(a.compromisos, a.cumplidos)}</div>
+              <div class="nums">{a.detalle.map((x) => <b title={x.indicador[lang]}>{x.indicador.id}</b>)}</div>
+              <details>
+                <summary>{t.verComp}</summary>
+                <ul class="detalle">
+                  {a.detalle.map((x) => (
+                    <li>
+                      <a href={ruta(lang, `indicadores/${x.indicador.slug}`)}>
+                        <b>{x.indicador.id}</b>
+                        <span>{x.indicador[`corto_${lang}`]}<small>{t.criterio} {d.config.criterios.find((c) => c.id === x.indicador.criterio).letras}</small></span>
+                      </a>
+                      <span class="roles">{x.roles.map((r) => <em title={t.estado1[r.estado]}><i class={`e-${r.estado}`} />{r[lang]}</em>)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-panel="vista:quienes" hidden>
+    <section class="seccion">
+      <div class="cont">
+        <div class="resumen">
+          <div>
+            <h1 class="num enorme">{d.personas.personas}</h1>
+            <p>{t.personasSub}</p>
+          </div>
+          <p class="nota">{t.personasNota}</p>
+        </div>
+        <div class="caja" data-tabs="tipo">
+          <div class="chips" role="tablist">
+            {grupos.map((g, i) => <button role="tab" data-tab={g.id} aria-selected={i === 0 ? 'true' : 'false'}>{g.nombre}</button>)}
+          </div>
+          {grupos.map((g, i) => (
+            <div data-panel={`tipo:${g.id}`} hidden={i > 0}>
+              <p class="nota">{t.personasEn(g.p.personas, g.n)}</p>
+              {Object.entries(DIMS).map(([dim, cats]) => {
+                const total = cats.reduce((s, [k]) => s + g.p[k], 0) || 1;
+                return (
+                  <div class="reng dim">
+                    <div class="nom">{t.dim[dim]}</div>
+                    <div class="apilada fina">{cats.filter(([k]) => g.p[k]).map(([k, color]) => <span style={`flex:${g.p[k]};background:${color}`} />)}</div>
+                    <ul class="ley">{cats.map(([k, color]) => <li><i style={`background:${color}`} />{t.cat[k]} <b>{Math.round((g.p[k] / total) * 100)} %</b></li>)}</ul>
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<script>
+  // Pestañas: muestra un panel por grupo. Sin JavaScript se ven todos los paneles.
+  document.querySelectorAll('[data-tabs]').forEach((g) => {
+    const nombre = g.dataset.tabs;
+    const botones = g.querySelectorAll('[data-tab]');
+    const elegir = (id) => {
+      botones.forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === id)));
+      document.querySelectorAll(`[data-panel^="${nombre}:"]`).forEach((p) => { p.hidden = p.dataset.panel !== `${nombre}:${id}`; });
+    };
+    botones.forEach((b) => b.addEventListener('click', () => {
+      elegir(b.dataset.tab);
+      if (nombre === 'vista') history.replaceState(null, '', b.dataset.tab === 'quienes' ? '#quienes' : location.pathname);
+    }));
+    if (nombre === 'vista' && location.hash === '#quienes') elegir('quienes');
+  });
+  // Un enlace directo a la tarjeta de un aliado (p. ej. desde una notificación) la abre
+  const abrir = () => { const el = location.hash.length > 1 && document.getElementById(location.hash.slice(1)); el?.querySelector('details')?.setAttribute('open', ''); };
+  abrir(); addEventListener('hashchange', abrir);
+</script>

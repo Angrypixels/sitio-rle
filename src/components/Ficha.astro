@@ -1,0 +1,72 @@
+---
+// Ficha de un indicador: cadena de cinco pasos, aliados por paso y línea de tiempo.
+import Base from '../layouts/Base.astro';
+import Icono from './Icono.astro';
+import { cargar } from '../lib/datos.js';
+import { textos, fecha, ruta } from '../lib/i18n.js';
+const { lang = 'es', slug } = Astro.props;
+const t = textos[lang];
+const d = cargar();
+const ind = d.indicadores.find((i) => i.slug === slug);
+const cr = d.config.criterios.find((c) => c.id === ind.criterio);
+const ant = d.indicadores.find((i) => i.id === ind.id - 1);
+const sig = d.indicadores.find((i) => i.id === ind.id + 1);
+const ult = ind.hitos[0];
+const frase = (h) => h[`texto_${lang}`] || t.cumplio(h.aliado, d.config.roles.find((r) => r.id === h.rol)[`largo_${lang}`]);
+---
+<Base lang={lang} seccion="indicadores" pagina={`indicadores/${slug}`} titulo={ind[lang]} esEjemplo={d.esEjemplo}>
+  <section class="cabeza grano">
+    <div class="cont ficha-cab">
+      <div>
+        <a class="volver" href={ruta(lang, 'indicadores')}>← {t.todosInd}</a>
+        <div class="eyebrow">{t.tipo[ind.tipo]} · {t.aportaA} {cr.letras}. {cr[lang]}</div>
+        <h1><span>{ind.id}</span> {ind[lang]}</h1>
+      </div>
+      <div class="total">
+        <div class="num">{ind.pct}<small>%</small></div>
+        <p>{ult ? `${t.ultima}: ${frase(ult)}, ${fecha(ult.fecha, lang)}` : t.sinNovedades}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="cont">
+      <ol class="pasos-ficha">
+        {ind.roles.map((r, i) => {
+          const sin = r.compromisos.filter((c) => !c.aliado).length;
+          return (
+            <li class={r.estado}>
+              <div class="riel"><span class="nodo"><Icono rol={r.id} /></span></div>
+              <div class="eyebrow">{i + 1}. {r[lang]}</div>
+              <h3>{r[`largo_${lang}`]}</h3>
+              <div class="num pc">{Math.round(r.avance * 100)}<small>%</small></div>
+              <ul>
+                {r.compromisos.filter((c) => c.aliado).map((c) => (
+                  <li><i class={`e-${c.estado}`} />{c.aliado} <em>{t.estado1[c.estado]}</em></li>
+                ))}
+                {sin > 0 && <li><i class="e-sin_vincular" />{t.nSinVincular(sin)}</li>}
+                {!r.asignados && <li class="vacio">{t.sinAsignar}</li>}
+              </ul>
+            </li>
+          );
+        })}
+      </ol>
+
+      <h2 class="sub">{t.linea}</h2>
+      <ul class="tiempo">
+        {ind.previstos.map((p) => (
+          <li class="previsto"><time>{fecha(p.fecha, lang)}</time><div>{t.previsto}: {p.rol[`largo_${lang}`].toLowerCase()}</div></li>
+        ))}
+        {ind.hitos.map((h) => (
+          <li><time datetime={h.fecha}>{fecha(h.fecha, lang)}</time><div>{frase(h)}</div></li>
+        ))}
+        {!ind.hitos.length && !ind.previstos.length && <li class="previsto"><div>{t.sinNovedades}</div></li>}
+      </ul>
+
+      <nav class="entre">
+        {ant ? <a href={ruta(lang, `indicadores/${ant.slug}`)}><small>← {t.anterior}</small>{ant.id}. {ant[lang]}</a> : <span />}
+        {sig ? <a class="der" href={ruta(lang, `indicadores/${sig.slug}`)}><small>{t.siguiente} →</small>{sig.id}. {sig[lang]}</a> : <span />}
+      </nav>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,81 @@
+// Textos de la interfaz en español e inglés.
+export const textos = {
+  es: {
+    sitio: 'RLe Colombia', sub: 'Índice de Lista Roja de Ecosistemas',
+    nav: { indice: 'Índice', indicadores: 'Indicadores', aliados: 'Aliados', novedades: 'Novedades' },
+    heroEyebrow: 'Preparación para el cálculo del RLe',
+    heroTitulo: '¿Qué tan cerca está Colombia de actualizar su Lista Roja de Ecosistemas?',
+    heroNota: (c, t) => `${c} de ${t} indicadores completos. El índice se calcula cuando los ocho lleguen a 100 %.`,
+    heroMide: 'Este sitio mide el avance del proceso, no el estado de los ecosistemas.',
+    lema: '8 indicadores, 5 pasos, 1 índice',
+    lemaTxt: 'El RLe se calcula con ocho indicadores que producen distintas entidades. Cada uno recorre cinco pasos, del dato al reporte, y cada paso lo asume uno o varios aliados.',
+    criterio: 'Criterio', criterios: 'Criterios', tipo: { MGKM: 'Indicador MGKM', Nacional: 'Indicador nacional' },
+    verFicha: 'Ver ficha',
+    aliadosTit: (a, t) => `${a} de ${t}`, aliadosSub: 'actores identificados ya son aliados',
+    estados: { cumplido: 'al día', trabajando: 'trabajando', vinculado: 'vinculados', sin_vincular: 'sin vincular' },
+    estado1: { cumplido: 'al día', trabajando: 'trabajando', vinculado: 'vinculado', sin_vincular: 'sin vincular' },
+    verAliados: 'Conocer a los aliados', novedadesTit: 'Últimas novedades', verNovedades: 'Todas las novedades',
+    cumplio: (a, r) => `${a} completó: ${r.toLowerCase()}`,
+    ejemplo: 'Prototipo con datos de ejemplo', pie: 'Un proyecto del Instituto Humboldt y UNEP-WCMC, con financiación de la Iniciativa Internacional del Clima (IKI).',
+    pasosTit: 'Los cinco pasos', ilustracion: 'Espacio para ilustración',
+    tipoAliado: { gobierno: 'Gobierno nacional', instituto: 'Institutos de investigación', plataforma: 'Plataformas de datos', academia: 'Academia', sociedad_civil: 'Sociedad civil' },
+    tipoAliado1: { gobierno: 'Gobierno nacional', instituto: 'Instituto de investigación', plataforma: 'Plataforma de datos', academia: 'Academia', sociedad_civil: 'Sociedad civil' },
+    indTit: 'Indicadores', indIntro: 'Ocho indicadores alimentan los cinco criterios del RLe: seis del Marco Mundial de Biodiversidad Kunming-Montreal y dos nacionales. Elija uno para ver quién lo trabaja y cómo avanza.',
+    aportaA: 'Aporta a', ultima: 'Última actualización', sinNovedades: 'Aún no hay hitos publicados.', linea: 'Línea de tiempo', previsto: 'Previsto',
+    nSinVincular: (n) => `${n} sin vincular`, sinAsignar: 'Por definir en la mesa técnica', anterior: 'Anterior', siguiente: 'Siguiente', todosInd: 'Todos los indicadores',
+    tabs: { compromisos: 'Compromisos', quienes: 'Quiénes participan' },
+    composicion: 'Composición de los aliados', porIndicador: 'Aliados por indicador', nAliados: (n) => `${n} ${n === 1 ? 'aliado' : 'aliados'}`,
+    comp: (n, c) => `${n} ${n === 1 ? 'compromiso' : 'compromisos'}, ${c} ${c === 1 ? 'completado' : 'completados'}`, verComp: 'Ver compromisos',
+    personasSub: 'personas participan en los aliados', personasNota: 'Composición por sexo, edad y autorreconocimiento étnico de las personas que trabajan en los compromisos. Cifras agregadas, con consentimiento.',
+    todos: 'Todos los aliados', personasEn: (p, n) => `${p} personas en ${n} ${n === 1 ? 'aliado' : 'aliados'}.`,
+    dim: { sexo: 'Sexo', edad: 'Edad', etnico: 'Autorreconocimiento étnico' },
+    cat: { mujeres: 'Mujeres', hombres: 'Hombres', sexo_otro_nr: 'Otro o no responde', edad_18_29: '18 a 29', edad_30_59: '30 a 59', edad_60_mas: '60 o más', indigena: 'Indígena', afrodescendiente: 'Afrodescendiente', etnico_ninguno: 'Ninguno', etnico_nr: 'No responde' },
+    novIntro: 'Cada hito cumplido se publica aquí, con fecha, indicador, paso y aliado.',
+    susTit: 'Reciba las novedades por correo', susTxt: 'Un mensaje cada vez que un aliado completa un paso.', correo: 'Correo electrónico', suscribir: 'Suscribirme', susNota: 'La suscripción se activará cuando se defina la cuenta de correo del proyecto.',
+    idioma: 'English', meses: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
+  },
+  en: {
+    sitio: 'RLE Colombia', sub: 'Red List of Ecosystems Index',
+    nav: { indice: 'Index', indicadores: 'Indicators', aliados: 'Partners', novedades: 'Updates' },
+    heroEyebrow: 'Readiness to calculate the RLE',
+    heroTitulo: 'How close is Colombia to updating its Red List of Ecosystems?',
+    heroNota: (c, t) => `${c} of ${t} indicators complete. The index is calculated once all eight reach 100%.`,
+    heroMide: 'This site tracks progress in the process, not the state of ecosystems.',
+    lema: '8 indicators, 5 steps, 1 index',
+    lemaTxt: 'The RLE is calculated from eight indicators produced by different organisations. Each one goes through five steps, from data to reporting, and each step is taken on by one or more partners.',
+    criterio: 'Criterion', criterios: 'Criteria', tipo: { MGKM: 'KMGBF indicator', Nacional: 'National indicator' },
+    verFicha: 'View details',
+    aliadosTit: (a, t) => `${a} of ${t}`, aliadosSub: 'identified actors are already partners',
+    estados: { cumplido: 'up to date', trabajando: 'working', vinculado: 'engaged', sin_vincular: 'not yet engaged' },
+    estado1: { cumplido: 'up to date', trabajando: 'working', vinculado: 'engaged', sin_vincular: 'not yet engaged' },
+    verAliados: 'Meet the partners', novedadesTit: 'Latest updates', verNovedades: 'All updates',
+    cumplio: (a, r) => `${a} completed: ${r.toLowerCase()}`,
+    ejemplo: 'Prototype with sample data', pie: 'A project by Instituto Humboldt and UNEP-WCMC, funded by the International Climate Initiative (IKI).',
+    pasosTit: 'The five steps', ilustracion: 'Illustration goes here',
+    tipoAliado: { gobierno: 'National government', instituto: 'Research institutes', plataforma: 'Data platforms', academia: 'Academia', sociedad_civil: 'Civil society' },
+    tipoAliado1: { gobierno: 'National government', instituto: 'Research institute', plataforma: 'Data platform', academia: 'Academia', sociedad_civil: 'Civil society' },
+    indTit: 'Indicators', indIntro: 'Eight indicators feed the five RLE criteria: six from the Kunming-Montreal Global Biodiversity Framework and two national ones. Choose one to see who is working on it and how it is progressing.',
+    aportaA: 'Contributes to', ultima: 'Last update', sinNovedades: 'No milestones published yet.', linea: 'Timeline', previsto: 'Planned',
+    nSinVincular: (n) => `${n} not yet engaged`, sinAsignar: 'To be defined by the technical group', anterior: 'Previous', siguiente: 'Next', todosInd: 'All indicators',
+    tabs: { compromisos: 'Commitments', quienes: 'Who takes part' },
+    composicion: 'Partner composition', porIndicador: 'Partners by indicator', nAliados: (n) => `${n} ${n === 1 ? 'partner' : 'partners'}`,
+    comp: (n, c) => `${n} ${n === 1 ? 'commitment' : 'commitments'}, ${c} completed`, verComp: 'View commitments',
+    personasSub: 'people take part across partners', personasNota: 'Composition by sex, age and ethnic self-identification of the people working on the commitments. Aggregated figures, with consent.',
+    todos: 'All partners', personasEn: (p, n) => `${p} people in ${n} ${n === 1 ? 'partner' : 'partners'}.`,
+    dim: { sexo: 'Sex', edad: 'Age', etnico: 'Ethnic self-identification' },
+    cat: { mujeres: 'Women', hombres: 'Men', sexo_otro_nr: 'Other or no answer', edad_18_29: '18 to 29', edad_30_59: '30 to 59', edad_60_mas: '60 or over', indigena: 'Indigenous', afrodescendiente: 'Afro-descendant', etnico_ninguno: 'None', etnico_nr: 'No answer' },
+    novIntro: 'Every completed milestone is published here, with date, indicator, step and partner.',
+    susTit: 'Get updates by email', susTxt: 'One message each time a partner completes a step.', correo: 'Email address', suscribir: 'Subscribe', susNota: 'Subscriptions will open once the project mailing account is defined.',
+    idioma: 'Español', meses: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  },
+};
+
+export const fecha = (iso, lang) => {
+  const [a, m, d] = iso.split('-').map(Number);
+  return `${d} ${textos[lang].meses[m - 1]} ${a}`;
+};
+
+// Rutas con la base configurada (sirve igual en / o en una subcarpeta)
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+export const ruta = (lang, p = '') => `${base}${lang === 'en' ? '/en' : ''}/${p ? p + '/' : ''}`;
+export const recurso = (p) => `${base}/${p}`;

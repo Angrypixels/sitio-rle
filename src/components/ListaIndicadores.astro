@@ -1,0 +1,35 @@
+---
+// Indicadores agrupados por criterio, con su cadena de cinco pasos.
+import { textos, ruta } from '../lib/i18n.js';
+const { d, lang } = Astro.props;
+const t = textos[lang];
+---
+{d.config.criterios.map((cr) => (
+  <div class="grupo">
+    <header>
+      <div class="eyebrow">{cr.letras.length > 1 ? t.criterios : t.criterio}</div>
+      <div class="letras">{cr.letras}</div>
+      <div class="nombre">{cr[lang]}</div>
+    </header>
+    <div>
+      {d.indicadores.filter((i) => i.criterio === cr.id).map((ind) => (
+        <a class="fila" id={`ind-${ind.id}`} href={ruta(lang, `indicadores/${ind.slug}`)}>
+          <div class="id">{ind.id}</div>
+          <div>
+            <h3>{ind[lang]}</h3>
+            <div class="meta">{t.tipo[ind.tipo]} · {t.nAliados(ind.nAliados)}</div>
+          </div>
+          <div class="cadena">
+            {ind.roles.map((r) => (
+              <div class={`paso ${r.estado}`} title={`${r[`largo_${lang}`]}: ${r.cumplidos}/${r.asignados}`}>
+                <div class="b"><i style={`--w:${Math.round(r.avance * 100)}%`} /></div>
+                <span>{r[lang]}</span>
+              </div>
+            ))}
+          </div>
+          <div class="p num">{ind.pct}<small>%</small></div>
+        </a>
+      ))}
+    </div>
+  </div>
+))}

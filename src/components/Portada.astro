@@ -1,0 +1,94 @@
+---
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import Base from '../layouts/Base.astro';
+import Icono from './Icono.astro';
+import ListaIndicadores from './ListaIndicadores.astro';
+import { cargar } from '../lib/datos.js';
+import { textos, fecha, ruta, recurso } from '../lib/i18n.js';
+const { lang = 'es' } = Astro.props;
+const t = textos[lang];
+const d = cargar();
+// La ilustración aparece cuando exista public/img/ilustracion-portada.png (PNG con transparencia)
+const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustracion-portada.png'));
+---
+<Base lang={lang} seccion="indice" esEjemplo={d.esEjemplo}>
+  <section class="hero grano">
+    <div class="cont">
+      <div>
+        <div class="eyebrow">{t.heroEyebrow}</div>
+        <h1>{t.heroTitulo}</h1>
+        <div class="grande num">{d.rle.pct}<small>%</small></div>
+        <p>{t.heroNota(d.rle.completos, d.rle.total)}</p>
+        <p class="mide">{t.heroMide}</p>
+      </div>
+      <div class="columnas" role="list">
+        {d.indicadores.map((ind, i) => (
+          <a class="col" role="listitem" href={ruta(lang, `indicadores/${ind.slug}`)} style={`--pct:${ind.pct}%;--i:${i}`} aria-label={`${ind[lang]}: ${ind.pct} %`}>
+            <span class="tip">{ind[lang]}</span>
+            <div class="pista">
+              <span class="n">{ind.id}</span>
+              <span class="valor">{ind.pct} %</span>
+              <div class="lleno" />
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="indicadores">
+    <div class="cont">
+      <div class="lema">
+        <div>
+          <h2>{t.lema}</h2>
+          <p>{t.lemaTxt}</p>
+        </div>
+        {hayIlustracion
+          ? <img class="ilustracion" src={recurso('img/ilustracion-portada.png')} alt="" />
+          : <div class="ilustracion hueco">{t.ilustracion}</div>}
+      </div>
+      <ol class="ruta" aria-label={t.pasosTit}>
+        {d.config.roles.map((r, i) => (
+          <li>
+            <span class="nodo"><Icono rol={r.id} /></span>
+            <b>{i + 1}. {r[lang]}</b>
+            <span>{r[`largo_${lang}`]}</span>
+          </li>
+        ))}
+      </ol>
+      <ListaIndicadores d={d} lang={lang} />
+    </div>
+  </section>
+
+  <section class="seccion doble">
+    <div class="cont">
+      <div>
+        <h2 class="num">{t.aliadosTit(d.actores.aliados, d.actores.total)}</h2>
+        <p>{t.aliadosSub}</p>
+        <div class="waffle" aria-hidden="true">{d.aliados.map((a) => <i class={`e-${a.estado}`} />)}</div>
+        <ul class="ley">
+          {['cumplido', 'trabajando', 'vinculado', 'sin_vincular'].map((e) => (
+            <li><i class={`e-${e}`} /><b>{d.actores[e]}</b> {t.estados[e]}</li>
+          ))}
+        </ul>
+        <a class="boton" href={ruta(lang, 'aliados')}>{t.verAliados}</a>
+      </div>
+      <div>
+        <h2 class="tit">{t.novedadesTit}</h2>
+        <ul class="hitos">
+          {d.hitos.slice(0, 5).map((h) => (
+            <li>
+              <time datetime={h.fecha}>{fecha(h.fecha, lang)}</time>
+              <div>
+                {h[`texto_${lang}`] || t.cumplio(h.aliado, d.config.roles.find((r) => r.id === h.rol)[`largo_${lang}`])}
+                <small>{h.indicador[lang]}</small>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <a class="boton linea" href={ruta(lang, 'novedades')}>{t.verNovedades}</a>
+      </div>
+    </div>
+  </section>
+</Base>

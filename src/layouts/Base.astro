@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+import { textos, ruta, recurso } from '../lib/i18n.js';
+const { lang = 'es', seccion = 'indice', pagina = '', titulo, esEjemplo = false } = Astro.props;
+const t = textos[lang];
+const otro = lang === 'es' ? 'en' : 'es';
+// Logos del pie: [archivo, texto alternativo, ancho, alto del SVG, sitio oficial]. Todos se escalan con el mismo factor,
+// así conservan entre sí las proporciones con que se exportaron.
+const logos = [
+  ['bmukn', 'Ministerio Federal de Medio Ambiente de Alemania (BMUKN)', 375.46, 156.6, 'https://www.bundesumweltministerium.de/'],
+  ['iki', 'Iniciativa Internacional del Clima (IKI)', 312.49, 71.51, 'https://www.international-climate-initiative.com/'],
+  ['unep-wcmc', 'UNEP-WCMC', 210.99, 61.78, 'https://www.unep-wcmc.org/'],
+  ['nmsi', 'Iniciativa de Apoyo al Monitoreo Nacional', 205.76, 81.85, 'https://www.monitoring-support.org/'],
+  ['humboldt', 'Instituto Humboldt', 74.93, 81.37, 'https://www.humboldt.org.co/'],
+  ['centro-subregional', 'Centro Subregional para la cooperación en Biodiversidad', 229.17, 69.13, 'https://www.humboldt.org.co/'],
+];
+const nav = [['indice', ruta(lang)], ['indicadores', ruta(lang, 'indicadores')], ['aliados', ruta(lang, 'aliados')], ['novedades', ruta(lang, 'novedades')]];
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titulo ? `${titulo} · ${t.sitio}` : `${t.sitio} · ${t.sub}`}</title>
+    <meta name="description" content={t.heroTitulo} />
+    <link rel="alternate" hreflang={otro} href={ruta(otro, pagina)} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400..900&family=Manrope:wght@400..800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    {esEjemplo && <div class="aviso">{t.ejemplo}</div>}
+    <header class="barra">
+      <div class="cont">
+        <a class="marca" href={ruta(lang)}>
+          <b>{t.sitio}</b><span>{t.sub}</span>
+        </a>
+        <nav>{nav.map(([k, href]) => <a href={href} aria-current={k === seccion ? 'page' : undefined}>{t.nav[k]}</a>)}</nav>
+        <a class="lang" href={ruta(otro, pagina)} lang={otro}>{t.idioma}</a>
+      </div>
+    </header>
+    <main><slot /></main>
+    <footer>
+      <div class="cont">
+        <div class="logos">
+          {logos.map(([f, alt, w, h, url]) => {
+            const img = <img src={recurso(`img/logos/${f}.svg`)} alt={alt} width={w} height={h} />;
+            return url
+              ? <a href={url} target="_blank" rel="noopener" style={`--w:${w};--h:${h}`}>{img}</a>
+              : <span style={`--w:${w};--h:${h}`}>{img}</span>;
+          })}
+        </div>
+        <p>{t.pie}</p>
+      </div>
+    </footer>
+  </body>
+</html>

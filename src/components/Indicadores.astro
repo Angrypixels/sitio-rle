@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import ListaIndicadores from './ListaIndicadores.astro';
+import { cargar } from '../lib/datos.js';
+import { textos } from '../lib/i18n.js';
+const { lang = 'es' } = Astro.props;
+const t = textos[lang];
+const d = cargar();
+---
+<Base lang={lang} seccion="indicadores" pagina="indicadores" titulo={t.indTit} esEjemplo={d.esEjemplo}>
+  <section class="cabeza grano">
+    <div class="cont">
+      <h1>{t.indTit}</h1>
+      <p>{t.indIntro}</p>
+    </div>
+  </section>
+  <section class="seccion">
+    <div class="cont"><ListaIndicadores d={d} lang={lang} /></div>
+  </section>
+</Base>
