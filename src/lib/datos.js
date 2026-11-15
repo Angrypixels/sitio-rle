@@ -7,16 +7,18 @@ import { parseCSV } from './csv.js';
 import config from '../../datos/indicadores.json';
 
 const raiz = join(process.cwd(), 'datos');
-const esEjemplo = !existsSync(join(raiz, 'actual', 'compromisos.csv'));
-// El aviso de prototipo también se puede forzar mientras la hoja tenga datos ficticios.
-const conAviso = esEjemplo || process.env.AVISO_PROTOTIPO === 'si';
-const leer = (n) => parseCSV(readFileSync(join(raiz, esEjemplo ? 'ejemplo' : 'actual', `${n}.csv`), 'utf8'));
+// Se usa datos/actual solo si están las tres pestañas; si falta alguna, se usa el ejemplo.
+const hayActual = () => ['aliados', 'compromisos', 'hitos'].every((n) => existsSync(join(raiz, 'actual', `${n}.csv`)));
 
 const ORDEN = { cumplido: 0, trabajando: 1, vinculado: 2, sin_vincular: 3 };
 const num = (v) => Number(v) || 0;
 const pct = (x) => Math.round(x * 100);
 
 export function cargar() {
+  const esEjemplo = !hayActual();
+  // El aviso de prototipo también se puede forzar mientras la hoja tenga datos ficticios.
+  const conAviso = esEjemplo || process.env.AVISO_PROTOTIPO === 'si';
+  const leer = (n) => parseCSV(readFileSync(join(raiz, esEjemplo ? 'ejemplo' : 'actual', `${n}.csv`), 'utf8'));
   const aliadosRaw = leer('aliados');
   const compromisos = leer('compromisos').map((c) => ({ ...c, indicador_id: num(c.indicador_id) }));
   const hitosRaw = leer('hitos').map((h) => ({ ...h, indicador_id: num(h.indicador_id) }));
