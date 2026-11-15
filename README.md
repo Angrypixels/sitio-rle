@@ -53,7 +53,7 @@ Para pasarlo a WCMC: apuntar un subdominio de `monitoring-support.org` a Cloudfl
 
 ## Pendiente
 
-- Ilustración de la portada: guardar como `public/img/ilustracion-portada.png` (PNG con transparencia) y aparece sola.
-- Suscripción por correo en Novedades (el formulario está inactivo).
+- Ilustraciones: `public/img/ilustracion-portada.webp` y `public/img/ilustracion-novedades.webp` (WebP con transparencia). Si falta el archivo, el sitio deja el espacio marcado.
+- Suscripción por correo en Novedades (el formulario aún no envía datos).
 - Íconos de los indicadores en SVG y logos de los aliados.
 - Tipografías alojadas en el sitio en vez de Google Fonts.

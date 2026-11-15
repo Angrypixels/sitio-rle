@@ -7,8 +7,8 @@ import { textos, fecha, ruta, recurso } from '../lib/i18n.js';
 const { lang = 'es' } = Astro.props;
 const t = textos[lang];
 const d = cargar();
-// Aparece cuando exista public/img/ilustracion-novedades.png (PNG con transparencia)
-const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustracion-novedades.png'));
+// Aparece cuando exista public/img/ilustracion-novedades.webp (WebP con transparencia)
+const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustracion-novedades.webp'));
 ---
 <Base lang={lang} seccion="novedades" pagina="novedades" titulo={t.nav.novedades} esEjemplo={d.esEjemplo}>
   <section class="cabeza grano">
@@ -35,15 +35,15 @@ const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustrac
       <aside class="suscribir">
         <h2>{t.susTit}</h2>
         <p>{t.susTxt}</p>
-        <form onsubmit="return false">
+        <form onsubmit="this.nextElementSibling.classList.add('activa'); return false">
           <label class="oculto" for="correo">{t.correo}</label>
-          <input id="correo" type="email" placeholder={t.correo} disabled />
-          <button class="boton" disabled>{t.suscribir}</button>
+          <input id="correo" type="email" placeholder={t.correo} />
+          <button class="boton">{t.suscribir}</button>
         </form>
         <p class="nota">{t.susNota}</p>
       </aside>
       {hayIlustracion
-        ? <img class="ilustracion alta" src={recurso('img/ilustracion-novedades.png')} alt="" />
+        ? <img class="ilustracion alta" src={recurso('img/ilustracion-novedades.webp')} alt="" />
         : <div class="ilustracion alta hueco">{t.ilustracion}</div>}
       </div>
     </div>

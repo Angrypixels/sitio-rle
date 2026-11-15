@@ -271,6 +271,8 @@ h2.sub { font: 800 24px var(--titulos); text-transform: uppercase; color: var(--
 .suscribir form { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 10px; }
 .suscribir input { flex: 1; min-width: 180px; font: 500 16px var(--cuerpo); padding: 12px; border: 1.5px solid var(--gris); background: #fff; }
 .suscribir button { border: 0; cursor: pointer; }
+.suscribir input:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
+.suscribir .nota.activa { font-style: normal; font-weight: 700; opacity: 1; color: var(--terracota); }
 .oculto { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
 
 @media (max-width: 860px) {

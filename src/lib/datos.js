@@ -71,7 +71,7 @@ export function cargar() {
       const cs = delInd.filter((c) => c.aliado_id === id).map((c) => c.estado);
       porEstado[cs.every((e) => e === 'cumplido') ? 'cumplido' : cs.some((e) => e === 'trabajando' || e === 'cumplido') ? 'trabajando' : cs.some((e) => e === 'vinculado') ? 'vinculado' : 'sin_vincular']++;
     });
-    // próximos pasos: el plazo más cercano de cada rol que aún no termina
+    // próximos pasos: el último plazo pendiente de cada rol que aún no termina
     const previstos = roles.filter((r) => r.asignados && r.cumplidos < r.asignados)
       .map((r) => ({ rol: r, fecha: r.compromisos.filter((c) => c.estado !== 'cumplido' && c.plazo).map((c) => c.plazo).sort().pop() }))
       .filter((x) => x.fecha).sort((a, b) => b.fecha.localeCompare(a.fecha));

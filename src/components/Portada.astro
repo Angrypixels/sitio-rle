@@ -9,8 +9,8 @@ import { textos, fecha, ruta, recurso } from '../lib/i18n.js';
 const { lang = 'es' } = Astro.props;
 const t = textos[lang];
 const d = cargar();
-// La ilustración aparece cuando exista public/img/ilustracion-portada.png (PNG con transparencia)
-const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustracion-portada.png'));
+// La ilustración aparece cuando exista public/img/ilustracion-portada.webp (WebP con transparencia)
+const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustracion-portada.webp'));
 ---
 <Base lang={lang} seccion="indice" esEjemplo={d.esEjemplo}>
   <section class="hero grano">
@@ -45,7 +45,7 @@ const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustrac
           <p>{t.lemaTxt}</p>
         </div>
         {hayIlustracion
-          ? <img class="ilustracion" src={recurso('img/ilustracion-portada.png')} alt="" />
+          ? <img class="ilustracion" src={recurso('img/ilustracion-portada.webp')} alt="" />
           : <div class="ilustracion hueco">{t.ilustracion}</div>}
       </div>
       <ol class="ruta" aria-label={t.pasosTit}>
