@@ -56,7 +56,11 @@ const VINCULADOS = new Set(['Minambiente · DBBSE', 'Minambiente · DAMCRA', 'Mi
 const AVANCE = { 1: 0.45, 2: 0.6, 3: 0.35, 4: 0.1, 5: 0.4, 6: 0.5, 7: 0, 8: 0.8 };
 
 // Logos disponibles en public/img/aliados/, por sigla.
-const LOGOS = { 'SiB Colombia': 'sib-colombia.svg' };
+const LOGOS = {
+  'Minambiente · DBBSE': 'ambiente.svg', 'Minambiente · DAMCRA': 'ambiente.svg', 'Minambiente · PAB': 'ambiente.svg',
+  PNN: 'pnn.png', 'Instituto Humboldt': 'humboldt.svg', IDEAM: 'ideam.svg', INVEMAR: 'invemar.svg', SINCHI: 'sinchi.svg',
+  'SiB Colombia': 'sib-colombia.svg', Javeriana: 'javeriana.svg', CI: 'ci.svg', UICN: 'uicn.svg',
+};
 
 const aliados = ACTORES.map(([sigla, nombre, tipo], i) => {
   const n = 4 + Math.floor(rnd() * 14);
