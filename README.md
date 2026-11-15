@@ -28,6 +28,7 @@ Variables de entorno:
 | Variable | Para qué |
 |---|---|
 | `HOJA_ALIADOS`, `HOJA_COMPROMISOS`, `HOJA_HITOS` | URL CSV de cada pestaña |
+| `AVISO_PROTOTIPO` | Con valor `si`, mantiene el aviso «Prototipo con datos de ejemplo» aunque el sitio lea la hoja |
 | `BASE` | Subcarpeta donde se publica, por ejemplo `/colombia/rle/`. Por defecto `/` |
 | `SITE_URL` | Dominio final |
 

@@ -8,6 +8,8 @@ import config from '../../datos/indicadores.json';
 
 const raiz = join(process.cwd(), 'datos');
 const esEjemplo = !existsSync(join(raiz, 'actual', 'compromisos.csv'));
+// El aviso de prototipo también se puede forzar mientras la hoja tenga datos ficticios.
+const conAviso = esEjemplo || process.env.AVISO_PROTOTIPO === 'si';
 const leer = (n) => parseCSV(readFileSync(join(raiz, esEjemplo ? 'ejemplo' : 'actual', `${n}.csv`), 'utf8'));
 
 const ORDEN = { cumplido: 0, trabajando: 1, vinculado: 2, sin_vincular: 3 };
@@ -99,7 +101,7 @@ export function cargar() {
   const cuenta = (e) => aliados.filter((a) => a.estado === e).length;
 
   return {
-    esEjemplo, config, indicadores, aliados, hitos, tipos, personas,
+    esEjemplo: conAviso, config, indicadores, aliados, hitos, tipos, personas,
     rle: { pct: pct(rle), completos: indicadores.filter((i) => i.pct === 100).length, total: indicadores.length },
     actores: {
       total: aliados.length, aliados: aliados.length - cuenta('sin_vincular'),
