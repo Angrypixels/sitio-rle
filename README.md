@@ -47,7 +47,7 @@ Los ocho indicadores, sus criterios y los nombres en los dos idiomas están en `
 ## Publicación
 
 1. Repositorio en GitHub (organización del Humboldt).
-2. Cloudflare Pages conectado al repositorio: comando `npm run publicar`, carpeta `dist`.
+2. Cloudflare Workers conectado al repositorio: comando de construcción `npm run publicar`, comando de despliegue `npx wrangler deploy`. `wrangler.jsonc` indica que se sirve la carpeta `dist`.
 3. Deploy hook de Cloudflare pegado en la hoja (`apps-script/Codigo.gs`): el menú **Sitio RLe > Publicar cambios** reconstruye el sitio.
 
 Para pasarlo a WCMC: apuntar un subdominio de `monitoring-support.org` a Cloudflare Pages (un registro DNS), o subir `dist/` a su servidor, o transferirles el repositorio y el proyecto de Cloudflare.
