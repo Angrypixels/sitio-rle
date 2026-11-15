@@ -4,9 +4,12 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { cargar } from '../lib/datos.js';
 import { textos, fecha, ruta, recurso } from '../lib/i18n.js';
+import sitio from '../../datos/sitio.json';
 const { lang = 'es' } = Astro.props;
 const t = textos[lang];
 const d = cargar();
+// Suscripción: se activa al poner en datos/sitio.json la dirección del formulario del servicio de correo.
+const { formulario, politica } = sitio.suscripcion;
 // Aparece cuando exista public/img/ilustracion-novedades.webp (WebP con transparencia)
 const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustracion-novedades.webp'));
 ---
@@ -35,12 +38,30 @@ const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustrac
       <aside class="suscribir">
         <h2>{t.susTit}</h2>
         <p>{t.susTxt}</p>
-        <form onsubmit="this.nextElementSibling.classList.add('activa'); return false">
-          <label class="oculto" for="correo">{t.correo}</label>
-          <input id="correo" type="email" placeholder={t.correo} />
-          <button class="boton">{t.suscribir}</button>
-        </form>
-        <p class="nota">{t.susNota}</p>
+        {formulario ? (
+          <form class="alta-correo" method="post" action={formulario} data-listo={t.susListo} data-error={t.susError}>
+            <div class="campo">
+              <label class="oculto" for="correo">{t.correo}</label>
+              <input id="correo" name="EMAIL" type="email" autocomplete="email" placeholder={t.correo} required />
+              <button class="boton">{t.suscribir}</button>
+            </div>
+            <label class="autoriza"><input type="checkbox" required /> <span>{t.susAutoriza}</span></label>
+            <input class="oculto" type="text" name="email_address_check" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <input type="hidden" name="locale" value={lang} />
+            <input type="hidden" name="html_type" value="simple" />
+            <p class="nota estado" role="status"></p>
+          </form>
+        ) : (
+          <form>
+            <div class="campo">
+              <label class="oculto" for="correo">{t.correo}</label>
+              <input id="correo" type="email" placeholder={t.correo} disabled />
+              <button class="boton" disabled>{t.suscribir}</button>
+            </div>
+            <p class="nota activa">{t.susNota}</p>
+          </form>
+        )}
+        {formulario && <p class="nota">{t.susAviso} {politica && <a href={politica}>{t.susPolitica}</a>}</p>}
       </aside>
       {hayIlustracion
         ? <img class="ilustracion alta" src={recurso('img/ilustracion-novedades.webp')} alt="" />
@@ -49,3 +70,24 @@ const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustrac
     </div>
   </section>
 </Base>
+
+<script>
+  // Envía la suscripción sin salir de la página. Sin JavaScript, el formulario se envía de la forma normal.
+  document.querySelectorAll('.alta-correo').forEach((f) => {
+    f.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const estado = f.querySelector('.estado');
+      const boton = f.querySelector('button');
+      boton.disabled = true;
+      let bien = false;
+      try {
+        const r = await fetch(`${f.action}${f.action.includes('?') ? '&' : '?'}isAjax=1`, { method: 'POST', body: new FormData(f) });
+        bien = r.ok && (await r.json()).success !== false;
+      } catch { bien = false; }
+      estado.textContent = bien ? f.dataset.listo : f.dataset.error;
+      estado.classList.add('activa');
+      if (bien) f.reset();
+      boton.disabled = false;
+    });
+  });
+</script>

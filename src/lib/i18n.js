@@ -31,7 +31,10 @@ export const textos = {
     dim: { sexo: 'Sexo', edad: 'Edad', etnico: 'Autorreconocimiento étnico' },
     cat: { mujeres: 'Mujeres', hombres: 'Hombres', sexo_otro_nr: 'Otro o no responde', edad_18_29: '18 a 29', edad_30_59: '30 a 59', edad_60_mas: '60 o más', indigena: 'Indígena', afrodescendiente: 'Afrodescendiente', etnico_ninguno: 'Ninguno', etnico_nr: 'No responde' },
     novIntro: 'Cada hito cumplido se publica aquí, con fecha, indicador, paso y aliado.',
-    susTit: 'Reciba las novedades por correo', susTxt: 'Un mensaje cada vez que un aliado completa un paso.', correo: 'Correo electrónico', suscribir: 'Suscribirme', susNota: 'La suscripción se activará cuando se defina la cuenta de correo del proyecto.',
+    susTit: 'Reciba las novedades por correo', susTxt: 'Un mensaje cada vez que un aliado completa un paso.', correo: 'Correo electrónico', suscribir: 'Suscribirme', susNota: 'La suscripción estará disponible pronto.',
+    susAutoriza: 'Autorizo al Instituto Humboldt a usar mi correo para enviarme novedades del RLe y a transferir esta lista a UNEP-WCMC al finalizar el proyecto, para que los envíos continúen.',
+    susAviso: 'Solo guardamos su correo. Puede darse de baja cuando quiera desde el enlace de cada mensaje.', susPolitica: 'Política de tratamiento de datos',
+    susListo: 'Casi listo: revise su correo y confirme la suscripción.', susError: 'No se pudo completar la suscripción. Intente de nuevo más tarde.',
     idioma: 'English', meses: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
   },
   en: {
@@ -65,7 +68,10 @@ export const textos = {
     dim: { sexo: 'Sex', edad: 'Age', etnico: 'Ethnic self-identification' },
     cat: { mujeres: 'Women', hombres: 'Men', sexo_otro_nr: 'Other or no answer', edad_18_29: '18 to 29', edad_30_59: '30 to 59', edad_60_mas: '60 or over', indigena: 'Indigenous', afrodescendiente: 'Afro-descendant', etnico_ninguno: 'None', etnico_nr: 'No answer' },
     novIntro: 'Every completed milestone is published here, with date, indicator, step and partner.',
-    susTit: 'Get updates by email', susTxt: 'One message each time a partner completes a step.', correo: 'Email address', suscribir: 'Subscribe', susNota: 'Subscriptions will open once the project mailing account is defined.',
+    susTit: 'Get updates by email', susTxt: 'One message each time a partner completes a step.', correo: 'Email address', suscribir: 'Subscribe', susNota: 'Subscriptions will be available soon.',
+    susAutoriza: 'I authorise Instituto Humboldt to use my email address to send me RLe updates, and to transfer this list to UNEP-WCMC when the project ends so that updates can continue.',
+    susAviso: 'We only store your email address. You can unsubscribe at any time from the link in each message.', susPolitica: 'Data protection policy',
+    susListo: 'Almost done: check your inbox and confirm your subscription.', susError: 'The subscription could not be completed. Please try again later.',
     idioma: 'Español', meses: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
   },
 };

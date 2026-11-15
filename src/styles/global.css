@@ -268,7 +268,12 @@ h2.sub { font: 800 24px var(--titulos); text-transform: uppercase; color: var(--
 .dos { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 64px; align-items: start; }
 .suscribir { background: var(--papel); padding: 28px; border-top: 4px solid var(--mostaza); }
 .suscribir h2 { font: 800 22px/1.15 var(--titulos); color: var(--azul); }
-.suscribir form { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 10px; }
+.suscribir form { margin: 16px 0 10px; }
+.suscribir .campo { display: flex; gap: 8px; flex-wrap: wrap; }
+.suscribir .autoriza { display: flex; gap: 10px; align-items: flex-start; margin-top: 14px; font-size: 13.5px; line-height: 1.45; cursor: pointer; }
+.suscribir .autoriza input { flex: none; min-width: 0; width: 18px; height: 18px; margin: 1px 0 0; padding: 0; accent-color: var(--teal); }
+.suscribir input:disabled { background: transparent; }
+.suscribir .estado:empty { display: none; }
 .suscribir input { flex: 1; min-width: 180px; font: 500 16px var(--cuerpo); padding: 12px; border: 1.5px solid var(--gris); background: #fff; }
 .suscribir button { border: 0; cursor: pointer; }
 .suscribir input:focus { outline: 2px solid var(--teal); outline-offset: 1px; }

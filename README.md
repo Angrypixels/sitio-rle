@@ -55,6 +55,6 @@ Para pasarlo a WCMC: apuntar un subdominio de `monitoring-support.org` a Cloudfl
 ## Pendiente
 
 - Ilustraciones: `public/img/ilustracion-portada.webp` y `public/img/ilustracion-novedades.webp` (WebP con transparencia). Si falta el archivo, el sitio deja el espacio marcado.
-- Suscripción por correo en Novedades (el formulario aún no envía datos).
+- Suscripción por correo en Novedades: se activa al poner en `datos/sitio.json` la dirección del formulario del servicio de correo (`formulario`) y el enlace a la política de datos (`politica`). Mientras estén vacíos, el formulario aparece como «disponible pronto».
 - Íconos de los indicadores en SVG y logos de los aliados.
 - Tipografías alojadas en el sitio en vez de Google Fonts.
