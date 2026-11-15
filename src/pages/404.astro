@@ -1,0 +1,22 @@
+---
+// Página que se muestra cuando la dirección no existe. Va en los dos idiomas.
+import Base from '../layouts/Base.astro';
+import { cargar } from '../lib/datos.js';
+import { ruta } from '../lib/i18n.js';
+const d = cargar();
+---
+<Base lang="es" seccion="" titulo="Página no encontrada" esEjemplo={d.esEjemplo}>
+  <section class="cabeza grano">
+    <div class="cont">
+      <p class="eyebrow">404</p>
+      <h1>Página no encontrada</h1>
+      <p>La dirección no existe o cambió de lugar. <span lang="en">This page does not exist or has moved.</span></p>
+    </div>
+  </section>
+  <section class="seccion">
+    <div class="cont">
+      <a class="boton" href={ruta('es', '')}>Ir al inicio</a>
+      <a class="boton linea" href={ruta('en', '')} lang="en">Go to home</a>
+    </div>
+  </section>
+</Base>
