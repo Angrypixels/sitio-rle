@@ -143,6 +143,6 @@ const visibles = d.aliados.filter((a) => a.visible);
     if (nombre === 'vista' && location.hash === '#quienes') elegir('quienes');
   });
   // Un enlace directo a la tarjeta de un aliado (p. ej. desde una notificación) la abre
-  const abrir = () => { const el = location.hash.length > 1 && document.getElementById(location.hash.slice(1)); el?.querySelector('details')?.setAttribute('open', ''); };
+  const abrir = () => { const el = location.hash.length > 1 ? document.getElementById(location.hash.slice(1)) : null; el?.querySelector('details')?.setAttribute('open', ''); };
   abrir(); addEventListener('hashchange', abrir);
 </script>
