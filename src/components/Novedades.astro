@@ -9,7 +9,7 @@ const { lang = 'es' } = Astro.props;
 const t = textos[lang];
 const d = cargar();
 // Suscripción: se activa al poner en datos/sitio.json la dirección del formulario del servicio de correo.
-const { formulario, politica } = sitio.suscripcion;
+const { formulario, politica, contacto } = sitio.suscripcion;
 // Aparece cuando exista public/img/ilustracion-novedades.webp (WebP con transparencia)
 const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustracion-novedades.webp'));
 ---
@@ -48,7 +48,6 @@ const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustrac
             <label class="autoriza"><input type="checkbox" required /> <span>{t.susAutoriza}</span></label>
             <input class="oculto" type="text" name="email_address_check" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <input type="hidden" name="locale" value={lang} />
-            <input type="hidden" name="html_type" value="simple" />
             <p class="nota estado" role="status"></p>
           </form>
         ) : (
@@ -61,7 +60,11 @@ const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustrac
             <p class="nota activa">{t.susNota}</p>
           </form>
         )}
-        {formulario && <p class="nota">{t.susAviso} {politica && <a href={politica}>{t.susPolitica}</a>}</p>}
+        {formulario && (
+          <p class="nota">
+            {t.susAviso} {contacto && <>{t.susContacto} <a href={`mailto:${contacto}`}>{contacto}</a>.</>} {politica && <a href={politica}>{t.susPolitica}</a>}
+          </p>
+        )}
       </aside>
       {hayIlustracion
         ? <img class="ilustracion alta" src={recurso('img/ilustracion-novedades.webp')} alt="" />
