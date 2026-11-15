@@ -55,13 +55,16 @@ const VINCULADOS = new Set(['Minambiente · DBBSE', 'Minambiente · DAMCRA', 'Mi
 // Qué tan avanzado va cada indicador (0 a 1).
 const AVANCE = { 1: 0.45, 2: 0.6, 3: 0.35, 4: 0.1, 5: 0.4, 6: 0.5, 7: 0, 8: 0.8 };
 
+// Logos disponibles en public/img/aliados/, por sigla.
+const LOGOS = { 'SiB Colombia': 'sib-colombia.svg' };
+
 const aliados = ACTORES.map(([sigla, nombre, tipo], i) => {
   const n = 4 + Math.floor(rnd() * 14);
   const muj = Math.round(n * (0.4 + rnd() * 0.25));
   const e1 = Math.round(n * 0.2), e3 = Math.round(n * 0.1);
   const ind = rnd() < 0.2 ? 1 : 0, afro = rnd() < 0.4 ? 1 : 0, nr = Math.round(n * 0.1);
   return {
-    id: `A${String(i + 1).padStart(2, '0')}`, nombre, sigla, tipo, logo: '', publicar: 'si',
+    id: `A${String(i + 1).padStart(2, '0')}`, nombre, sigla, tipo, logo: LOGOS[sigla] ?? '', publicar: 'si',
     personas: n, mujeres: muj, hombres: n - muj, sexo_otro_nr: 0,
     edad_18_29: e1, edad_30_59: n - e1 - e3, edad_60_mas: e3,
     indigena: ind, afrodescendiente: afro, etnico_ninguno: n - ind - afro - nr, etnico_nr: nr,
