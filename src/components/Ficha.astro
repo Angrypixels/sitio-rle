@@ -3,7 +3,7 @@
 import Base from '../layouts/Base.astro';
 import Icono from './Icono.astro';
 import { cargar } from '../lib/datos.js';
-import { textos, fecha, ruta } from '../lib/i18n.js';
+import { textos, fecha, ruta, recurso } from '../lib/i18n.js';
 import descripciones from '../../datos/descripciones.json';
 const { lang = 'es', slug } = Astro.props;
 const t = textos[lang];
@@ -21,6 +21,7 @@ const frase = (h) => h[`texto_${lang}`] || t.cumplio(h.aliado, d.config.roles.fi
       <div>
         <a class="volver" href={ruta(lang, 'indicadores')}>← {t.todosInd}</a>
         <div class="eyebrow">{t.tipo[ind.tipo]} · {t.aportaA} {cr.letras}. {cr[lang]}</div>
+        <i class="icono" style={`--icono:url(${recurso(`img/iconos/${slug}.svg`)})`} aria-hidden="true" />
         <h1><span>{ind.id}</span> {ind[lang]}</h1>
         {descripciones[slug]?.[lang] && <p class="desc">{descripciones[slug][lang]}</p>}
       </div>

@@ -56,5 +56,5 @@ Para pasarlo a WCMC: apuntar un subdominio de `monitoring-support.org` a Cloudfl
 
 - Ilustraciones: `public/img/ilustracion-portada.webp` y `public/img/ilustracion-novedades.webp` (WebP con transparencia). Si falta el archivo, el sitio deja el espacio marcado.
 - Suscripción por correo en Novedades: se activa al poner en `datos/sitio.json` la dirección del formulario de Brevo (`formulario`), el enlace a la política de datos (`politica`) y el correo de contacto (`contacto`). Si `formulario` está vacío, el formulario aparece como «disponible pronto».
-- Íconos de los indicadores en SVG y logos de los aliados.
+- Logos de los aliados que faltan. Los íconos de los indicadores están en `public/img/iconos/`, con el identificador del indicador como nombre.
 - Tipografías alojadas en el sitio en vez de Google Fonts.
