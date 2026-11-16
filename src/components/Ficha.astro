@@ -20,8 +20,7 @@ const frase = (h) => h[`texto_${lang}`] || t.cumplio(h.aliado, d.config.roles.fi
     <div class="cont ficha-cab">
       <div>
         <a class="volver" href={ruta(lang, 'indicadores')}>← {t.todosInd}</a>
-        <div class="eyebrow">{t.tipo[ind.tipo]} · {t.aportaA} {cr.letras}. {cr[lang]}</div>
-        <i class="icono" style={`--icono:url(${recurso(`img/iconos/${slug}.svg`)})`} aria-hidden="true" />
+        <div class="eyebrow"><i class="icono" style={`--icono:url(${recurso(`img/iconos/${slug}.svg`)})`} aria-hidden="true" /><span>{t.tipo[ind.tipo]} · {t.aportaA} {cr.letras}. {cr[lang]}</span></div>
         <h1><span>{ind.id}</span> {ind[lang]}</h1>
         {descripciones[slug]?.[lang] && <p class="desc">{descripciones[slug][lang]}</p>}
       </div>
