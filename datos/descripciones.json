@@ -1,28 +1,34 @@
 {
   "ecosistemas-naturales": {
     "es": "Mide la superficie de ecosistemas naturales y seminaturales del país y cómo cambia frente a la expansión de las áreas transformadas. Para el RLe, sus series de mapas permiten calcular cuánto se ha reducido la distribución de cada tipo de ecosistema y qué tan restringida es (criterios A y B).",
-    "en": "Measures the area of natural and semi-natural ecosystems in the country and how it changes as transformed areas expand. For the RLe, its map series show how much the distribution of each ecosystem type has shrunk and how restricted it is (criteria A and B)."
+    "en": "Measures the area of natural and semi-natural ecosystems in the country and how it changes as transformed areas expand. For the RLE, its map series show how much the distribution of each ecosystem type has shrunk and how restricted it is (criteria A and B)."
   },
-  "aguas-continentales": { "es": "", "en": "" },
-  "representatividad": { "es": "", "en": "" },
+  "aguas-continentales": {
+    "es": "",
+    "en": ""
+  },
+  "representatividad": {
+    "es": "",
+    "en": ""
+  },
   "regulacion-hidrica": {
     "es": "Describe la capacidad de los ecosistemas para retener y regular el agua. En Colombia se mide con el Índice de Retención y Regulación Hídrica (IRH) del IDEAM, de 0 a 1: los valores cercanos a 1 indican caudales más estables. Para el RLe permite estimar la degradación del ambiente abiótico (criterio C).",
-    "en": "Describes the capacity of ecosystems to retain and regulate water. In Colombia it is measured with IDEAM's Water Retention and Regulation Index (IRH), from 0 to 1: values close to 1 indicate more stable flows. For the RLe, it helps estimate degradation of the abiotic environment (criterion C)."
+    "en": "Describes the capacity of ecosystems to retain and regulate water. In Colombia it is measured with IDEAM's Water Retention and Regulation Index (IRH), from 0 to 1: values close to 1 indicate more stable flows. For the RLE, it helps estimate degradation of the abiotic environment (criterion C)."
   },
   "invasoras": {
     "es": "Estima cuántas especies exóticas invasoras nuevas se establecen cada año en el país, a partir del año de su primer registro. Para el RLe es un insumo complementario para explorar cómo las invasiones alteran los procesos bióticos (criterio D); su uso todavía requiere desarrollo metodológico.",
-    "en": "Estimates how many new invasive alien species become established in the country each year, based on the year of their first record. For the RLe, it is a complementary input for exploring how invasions disrupt biotic processes (criterion D); its use still requires methodological development."
+    "en": "Estimates how many new invasive alien species become established in the country each year, based on the year of their first record. For the RLE, it is a complementary input for exploring how invasions disrupt biotic processes (criterion D); its use still requires methodological development."
   },
   "rli": {
     "es": "Resume cómo cambia el riesgo de extinción de un conjunto de especies según sus categorías en la Lista Roja de la UICN, en una escala de 0 a 1: si baja, el riesgo aumenta. Para el RLe, junto con el índice STAR, ayuda a ubicar dónde la pérdida de especies puede comprometer procesos ecológicos (criterio D).",
-    "en": "Summarises how the extinction risk of a set of species changes according to their IUCN Red List categories, on a scale from 0 to 1: a falling value means rising risk. For the RLe, together with the STAR metric, it helps locate where species loss may compromise ecological processes (criterion D)."
+    "en": "Summarises how the extinction risk of a set of species changes according to their IUCN Red List categories, on a scale from 0 to 1: a falling value means rising risk. For the RLE, together with the STAR metric, it helps locate where species loss may compromise ecological processes (criterion D)."
   },
   "polinizacion": {
     "es": "Evalúa la polinización como función del ecosistema: la interacción entre plantas y animales que permite que las plantas se reproduzcan. Para el RLe, la pérdida del área donde plantas y polinizadores pueden coincidir se interpreta como una señal de degradación de los procesos bióticos (criterio D).",
-    "en": "Assesses pollination as an ecosystem function: the interaction between plants and animals that allows plants to reproduce. For the RLe, loss of the area where plants and pollinators can co-occur is read as a sign of degradation of biotic processes (criterion D)."
+    "en": "Assesses pollination as an ecosystem function: the interaction between plants and animals that allows plants to reproduce. For the RLE, loss of the area where plants and pollinators can co-occur is read as a sign of degradation of biotic processes (criterion D)."
   },
   "beri": {
     "es": "Estima la capacidad de los paisajes para conservar su diversidad de especies frente al cambio climático, según la extensión, la integridad y la conectividad del hábitat. Va de 0 a 1: los valores altos indican paisajes más conectados y resilientes. Para el RLe es un posible insumo para estimar la probabilidad de colapso de los ecosistemas (criterio E).",
-    "en": "Estimates the capacity of landscapes to retain their species diversity under climate change, based on habitat extent, integrity and connectivity. It ranges from 0 to 1: high values indicate better connected, more resilient landscapes. For the RLe, it is a potential input for estimating the probability of ecosystem collapse (criterion E)."
+    "en": "Estimates the capacity of landscapes to retain their species diversity under climate change, based on habitat extent, integrity and connectivity. It ranges from 0 to 1: high values indicate better connected, more resilient landscapes. For the RLE, it is a potential input for estimating the probability of ecosystem collapse (criterion E)."
   }
 }

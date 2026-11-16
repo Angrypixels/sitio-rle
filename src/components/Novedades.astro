@@ -13,7 +13,7 @@ const { formulario, politica, contacto } = sitio.suscripcion;
 // Aparece cuando exista public/img/ilustracion-novedades.webp (WebP con transparencia)
 const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustracion-novedades.webp'));
 ---
-<Base lang={lang} seccion="novedades" pagina="novedades" titulo={t.nav.novedades} esEjemplo={d.esEjemplo}>
+<Base lang={lang} seccion="novedades" pagina="novedades" titulo={t.nav.novedades} descripcion={t.novIntro} esEjemplo={d.esEjemplo}>
   <section class="cabeza grano">
     <div class="cont">
       <h1>{t.nav.novedades}</h1>

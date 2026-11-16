@@ -22,9 +22,9 @@ const hayIlustracion = existsSync(join(process.cwd(), 'public', 'img', 'ilustrac
         <p>{t.heroNota(d.rle.completos, d.rle.total)}</p>
         <p class="mide">{t.heroMide}</p>
       </div>
-      <div class="columnas" role="list">
+      <div class="columnas">
         {d.indicadores.map((ind, i) => (
-          <a class="col" role="listitem" href={ruta(lang, `indicadores/${ind.slug}`)} style={`--pct:${ind.pct}%;--i:${i}`} aria-label={`${ind[lang]}: ${ind.pct} %`}>
+          <a class="col" href={ruta(lang, `indicadores/${ind.slug}`)} style={`--pct:${ind.pct}%;--i:${i}`} aria-label={`${ind[lang]}: ${ind.pct} %`}>
             <span class="tip">{ind[lang]}</span>
             <div class="pista">
               <span class="n">{ind.id}</span>

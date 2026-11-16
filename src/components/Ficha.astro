@@ -15,7 +15,7 @@ const sig = d.indicadores.find((i) => i.id === ind.id + 1);
 const ult = ind.hitos[0];
 const frase = (h) => h[`texto_${lang}`] || t.cumplio(h.aliado, d.config.roles.find((r) => r.id === h.rol)[`largo_${lang}`]);
 ---
-<Base lang={lang} seccion="indicadores" pagina={`indicadores/${slug}`} titulo={ind[lang]} esEjemplo={d.esEjemplo}>
+<Base lang={lang} seccion="indicadores" pagina={`indicadores/${slug}`} titulo={ind[lang]} descripcion={descripciones[slug]?.[lang]} esEjemplo={d.esEjemplo}>
   <section class="cabeza grano">
     <div class="cont ficha-cab">
       <div>

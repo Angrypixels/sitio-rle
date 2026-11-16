@@ -7,7 +7,7 @@ const { lang = 'es' } = Astro.props;
 const t = textos[lang];
 const d = cargar();
 ---
-<Base lang={lang} seccion="indicadores" pagina="indicadores" titulo={t.indTit} esEjemplo={d.esEjemplo}>
+<Base lang={lang} seccion="indicadores" pagina="indicadores" titulo={t.indTit} descripcion={t.indIntro} esEjemplo={d.esEjemplo}>
   <section class="cabeza grano">
     <div class="cont">
       <h1>{t.indTit}</h1>
