@@ -14,7 +14,7 @@ mkdirSync(dir, { recursive: true });
 const ACTORES = [
   ['Minambiente · DBBSE', 'Ministerio de Ambiente y Desarrollo Sostenible, Dirección de Bosques, Biodiversidad y Servicios Ecosistémicos', 'gobierno'],
   ['Minambiente · DAMCRA', 'Ministerio de Ambiente y Desarrollo Sostenible, Dirección de Asuntos Marinos, Costeros y Recursos Acuáticos', 'gobierno'],
-  ['Minambiente · PAB', 'Ministerio de Ambiente y Desarrollo Sostenible, Grupo implementador del PAB', 'gobierno'],
+  ['Minambiente · ABC', 'Ministerio de Ambiente y Desarrollo Sostenible, Grupo implementador del ABC', 'gobierno'],
   ['DNP', 'Departamento Nacional de Planeación', 'gobierno'],
   ['Minagricultura', 'Ministerio de Agricultura y Desarrollo Rural', 'gobierno'],
   ['DANE', 'Departamento Administrativo Nacional de Estadística', 'gobierno'],
@@ -44,20 +44,20 @@ const ROLES = {
   3: { aporta: ['PNN', 'IDEAM', 'TNC'], prepara: ['Instituto Humboldt'], calcula: ['Instituto Humboldt'], valida: ['UICN'], reporta: ['Minambiente · DBBSE'] },
   4: { aporta: ['IDEAM', 'ANLA'], prepara: ['IDEAM'], calcula: ['IDEAM'], valida: ['DANE'], reporta: ['Minambiente · DBBSE'] },
   5: { aporta: ['AUNAP', 'SiB Colombia', 'INVEMAR'], prepara: ['SiB Colombia'], calcula: ['Instituto Humboldt'], valida: ['UICN'], reporta: ['Minambiente · DBBSE'] },
-  6: { aporta: ['SiB Colombia', 'CI', 'SINCHI'], prepara: ['Instituto Humboldt'], calcula: ['Instituto Humboldt'], valida: ['UICN', 'Javeriana'], reporta: ['Minambiente · PAB'] },
-  7: { aporta: ['AGROSAVIA', 'Minagricultura', 'Javeriana'], prepara: ['Instituto Humboldt'], calcula: ['Instituto Humboldt'], valida: ['DANE'], reporta: ['Minambiente · PAB'] },
-  8: { aporta: ['IDEAM', 'Instituto Humboldt'], prepara: ['Instituto Humboldt'], calcula: ['Instituto Humboldt'], valida: ['IDEAM', 'FCDS'], reporta: ['Minambiente · PAB'] },
+  6: { aporta: ['SiB Colombia', 'CI', 'SINCHI'], prepara: ['Instituto Humboldt'], calcula: ['Instituto Humboldt'], valida: ['UICN', 'Javeriana'], reporta: ['Minambiente · ABC'] },
+  7: { aporta: ['AGROSAVIA', 'Minagricultura', 'Javeriana'], prepara: ['Instituto Humboldt'], calcula: ['Instituto Humboldt'], valida: ['DANE'], reporta: ['Minambiente · ABC'] },
+  8: { aporta: ['IDEAM', 'Instituto Humboldt'], prepara: ['Instituto Humboldt'], calcula: ['Instituto Humboldt'], valida: ['IDEAM', 'FCDS'], reporta: ['Minambiente · ABC'] },
 };
 
 // --- Supuestos ficticios para mostrar el sitio con avance -----------------------------------
 // Actores que en el ejemplo ya respondieron; los demás quedan sin vincular.
-const VINCULADOS = new Set(['Minambiente · DBBSE', 'Minambiente · DAMCRA', 'Minambiente · PAB', 'Instituto Humboldt', 'IDEAM', 'INVEMAR', 'SINCHI', 'SiB Colombia', 'PNN', 'Javeriana', 'UICN', 'CI']);
+const VINCULADOS = new Set(['Minambiente · DBBSE', 'Minambiente · DAMCRA', 'Minambiente · ABC', 'Instituto Humboldt', 'IDEAM', 'INVEMAR', 'SINCHI', 'SiB Colombia', 'PNN', 'Javeriana', 'UICN', 'CI']);
 // Qué tan avanzado va cada indicador (0 a 1).
 const AVANCE = { 1: 0.45, 2: 0.6, 3: 0.35, 4: 0.1, 5: 0.4, 6: 0.5, 7: 0, 8: 0.8 };
 
 // Logos disponibles en public/img/aliados/, por sigla.
 const LOGOS = {
-  'Minambiente · DBBSE': 'ambiente.svg', 'Minambiente · DAMCRA': 'ambiente.svg', 'Minambiente · PAB': 'ambiente.svg',
+  'Minambiente · DBBSE': 'ambiente.svg', 'Minambiente · DAMCRA': 'ambiente.svg', 'Minambiente · ABC': 'ambiente.svg',
   PNN: 'pnn.png', 'Instituto Humboldt': 'humboldt.svg', IDEAM: 'ideam.svg', INVEMAR: 'invemar.svg', SINCHI: 'sinchi.svg',
   'SiB Colombia': 'sib-colombia.svg', Javeriana: 'javeriana.svg', CI: 'ci.svg', UICN: 'uicn.svg',
 };

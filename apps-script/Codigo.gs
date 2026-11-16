@@ -2,7 +2,7 @@
  * Menú "Sitio RLe" dentro de la hoja de seguimiento.
  * Extensiones > Apps Script > pegar este archivo.
  * En Configuración del proyecto > Propiedades de la secuencia de comandos, crear
- * DEPLOY_HOOK con la URL del deploy hook de Cloudflare Pages (o del workflow de GitHub).
+ * DEPLOY_HOOK con la URL del deploy hook de Cloudflare.
  */
 function onOpen() {
   SpreadsheetApp.getUi().createMenu('Sitio RLe')
@@ -23,6 +23,42 @@ function publicarSitio() {
   ui.alert(r.getResponseCode() < 300
     ? 'Listo. El sitio se actualiza en uno o dos minutos.'
     : 'No se pudo publicar (código ' + r.getResponseCode() + ').');
+}
+
+/**
+ * Hito automático: al cambiar a "cumplido" el estado de un compromiso, agrega la fila
+ * correspondiente en la pestaña hitos con la fecha del día y publicar = si.
+ * Si ese hito ya existe (mismo indicador, rol y aliado), no lo repite.
+ * La fecha y los textos se pueden corregir después a mano en la pestaña hitos.
+ */
+function onEdit(e) {
+  const hoja = e.range.getSheet();
+  if (hoja.getName() !== 'compromisos') return;
+  const cab = hoja.getRange(1, 1, 1, hoja.getLastColumn()).getValues()[0].map((c) => String(c).trim().toLowerCase());
+  const col = (n) => cab.indexOf(n) + 1;
+  const cEstado = col('estado');
+  if (!cEstado || e.range.getColumn() > cEstado || e.range.getLastColumn() < cEstado) return;
+
+  const hitos = e.source.getSheetByName('hitos');
+  const cabH = hitos.getRange(1, 1, 1, hitos.getLastColumn()).getValues()[0].map((c) => String(c).trim().toLowerCase());
+  const colH = (n) => cabH.indexOf(n) + 1;
+  const hoy = Utilities.formatDate(new Date(), e.source.getSpreadsheetTimeZone(), 'yyyy-MM-dd');
+
+  // Recorre las filas editadas: sirve igual para una celda que para un bloque pegado.
+  for (let f = Math.max(e.range.getRow(), 2); f <= e.range.getLastRow(); f++) {
+    const fila = hoja.getRange(f, 1, 1, cab.length).getValues()[0];
+    if (String(fila[cEstado - 1]).trim() !== 'cumplido') continue;
+    const nuevo = { fecha: hoy, indicador_id: fila[col('indicador_id') - 1], rol: fila[col('rol') - 1], aliado_id: fila[col('aliado_id') - 1], estado: 'cumplido', publicar: 'si' };
+
+    const datos = hitos.getRange(1, 1, Math.max(hitos.getLastRow(), 1), cabH.length).getValues();
+    const igual = (h, n) => String(h[colH(n) - 1]).trim() === String(nuevo[n]).trim();
+    if (datos.some((h, i) => i > 0 && igual(h, 'indicador_id') && igual(h, 'rol') && igual(h, 'aliado_id'))) continue;
+
+    // Primera fila sin fecha: así no importa si las columnas de ayuda tienen fórmulas más abajo.
+    let destino = datos.findIndex((h, i) => i > 0 && String(h[colH('fecha') - 1]).trim() === '') + 1;
+    if (!destino) destino = datos.length + 1;
+    Object.keys(nuevo).forEach((n) => { if (colH(n)) hitos.getRange(destino, colH(n)).setValue(nuevo[n]); });
+  }
 }
 
 // Revisa que estados, roles e identificadores sean válidos.

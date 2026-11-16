@@ -12,7 +12,7 @@ const logos = [
   ['unep-wcmc', 'UNEP-WCMC', 210.99, 61.78, 'https://www.unep-wcmc.org/'],
   ['nmsi', 'Iniciativa de Apoyo al Monitoreo Nacional', 205.76, 81.85, 'https://www.monitoring-support.org/'],
   ['humboldt', 'Instituto Humboldt', 74.93, 81.37, 'https://www.humboldt.org.co/'],
-  ['centro-subregional', 'Centro Subregional para la cooperación en Biodiversidad', 229.17, 69.13, 'https://www.humboldt.org.co/'],
+  ['centro-subregional', 'Centro Subregional para la cooperación en Biodiversidad', 229.17, 69.13, 'https://proyectos.humboldt.org.co/enqueandaelhumboldt/2025/centro.html'],
 ];
 const nav = [['indice', ruta(lang)], ['indicadores', ruta(lang, 'indicadores')], ['aliados', ruta(lang, 'aliados')], ['novedades', ruta(lang, 'novedades')]];
 ---
@@ -23,6 +23,8 @@ const nav = [['indice', ruta(lang)], ['indicadores', ruta(lang, 'indicadores')],
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{titulo ? `${titulo} · ${t.sitio}` : `${t.sitio} · ${t.sub}`}</title>
     <meta name="description" content={t.heroTitulo} />
+    {/* Mientras el sitio muestre el aviso de prototipo, se pide a los buscadores que no lo guarden. */}
+    {esEjemplo && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" type="image/svg+xml" href={recurso('favicon.svg')} />
     <link rel="alternate" hreflang={otro} href={ruta(otro, pagina)} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
