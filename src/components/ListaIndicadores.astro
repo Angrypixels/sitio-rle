@@ -14,13 +14,10 @@ const t = textos[lang];
     <div>
       {d.indicadores.filter((i) => i.criterio === cr.id).map((ind) => (
         <a class="fila" id={`ind-${ind.id}`} href={ruta(lang, `indicadores/${ind.slug}`)}>
-          <div class="id">{ind.id}</div>
-          <div class="tit">
-            <i class="icono" style={`--icono:url(${recurso(`img/iconos/${ind.slug}.svg`)})`} aria-hidden="true" />
-            <div>
-              <h3>{ind[lang]}</h3>
-              <div class="meta">{t.tipo[ind.tipo]} · {t.nAliados(ind.nAliados)}</div>
-            </div>
+          <div class="id">{ind.id}<i class="icono" style={`--icono:url(${recurso(`img/iconos/${ind.slug}.svg`)})`} aria-hidden="true" /></div>
+          <div>
+            <h3>{ind[lang]}</h3>
+            <div class="meta">{t.tipo[ind.tipo]} · {t.nAliados(ind.nAliados)}</div>
           </div>
           <div class="cadena">
             {ind.roles.map((r) => (
