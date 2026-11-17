@@ -220,6 +220,24 @@ h2.sub { font: 800 24px var(--titulos); text-transform: uppercase; color: var(--
 .entre small { display: block; font: 600 12px var(--titulos); letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.78; margin-bottom: 4px; }
 .entre .der { text-align: right; }
 
+/* Ficha: pestaña «Sobre el indicador» */
+.sobre { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 56px; align-items: start; }
+.sobre[hidden], [data-panel][hidden] { display: none; }
+.sobre-txt h2.sub:first-child { margin-top: 0; }
+.sobre-txt p { max-width: 68ch; margin: 0 0 14px; }
+.pasos-calc { counter-reset: paso; list-style: none; margin: 0; padding: 0; max-width: 68ch; }
+.pasos-calc li { counter-increment: paso; position: relative; padding: 0 0 14px 44px; }
+.pasos-calc li::before { content: counter(paso); position: absolute; left: 0; top: 0; width: 28px; height: 28px; display: grid; place-items: center; font: 800 14px var(--titulos); color: var(--crema); background: var(--teal-texto); }
+.sobre-lado { background: var(--papel); padding: 28px; border-top: 3px solid var(--azul); }
+.sobre-lado .marco { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--linea); }
+.sobre-lado .marco .eyebrow { color: var(--teal-texto); margin-bottom: 8px; }
+.sobre-lado .marco p { margin: 0; font: 600 16px/1.45 var(--titulos); color: var(--azul); }
+.sobre-lado h3 { font: 800 15px var(--titulos); text-transform: uppercase; letter-spacing: 0.04em; color: var(--azul); margin-bottom: 12px; }
+.fuentes { list-style: none; margin: 0 0 18px; padding: 0; font-size: 15px; line-height: 1.45; }
+.fuentes li { padding: 8px 0; border-bottom: 1px solid var(--linea); }
+.fuentes b { display: block; font: 700 14px var(--titulos); color: var(--azul); }
+@media (max-width: 860px) { .sobre { grid-template-columns: 1fr; gap: 32px; } .sobre-lado { padding: 22px; } }
+
 /* Aliados */
 .pestanas { background: var(--azul); }
 .pestanas .cont { display: flex; gap: 6px; padding-top: 18px; }

@@ -42,7 +42,7 @@ Variables de entorno:
 
 **hitos**: `fecha, indicador_id, rol, aliado_id, estado, texto_es, texto_en, publicar`. Si los textos van vacíos, el sitio arma la frase («Aliado X cumplió: …»). Al marcar un compromiso como `cumplido`, el script de la hoja agrega aquí la fila con la fecha del día.
 
-Los ocho indicadores, sus criterios y los nombres en los dos idiomas están en `datos/indicadores.json`. La descripción breve de cada ficha está en `datos/descripciones.json`; si queda vacía, la ficha no la muestra.
+Los ocho indicadores, sus criterios y los nombres en los dos idiomas están en `datos/indicadores.json`. La descripción breve de cada ficha está en `datos/descripciones.json`; si queda vacía, la ficha no la muestra. El resumen de la ficha técnica (pestaña «Sobre el indicador») está en `datos/fichas.json`; si un indicador no aparece ahí, su página no muestra pestañas.
 
 ## Publicación
 

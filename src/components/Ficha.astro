@@ -5,6 +5,7 @@ import Icono from './Icono.astro';
 import { cargar } from '../lib/datos.js';
 import { textos, fecha, ruta, recurso } from '../lib/i18n.js';
 import descripciones from '../../datos/descripciones.json';
+import fichas from '../../datos/fichas.json';
 const { lang = 'es', slug } = Astro.props;
 const t = textos[lang];
 const d = cargar();
@@ -13,6 +14,8 @@ const cr = d.config.criterios.find((c) => c.id === ind.criterio);
 const ant = d.indicadores.find((i) => i.id === ind.id - 1);
 const sig = d.indicadores.find((i) => i.id === ind.id + 1);
 const ult = ind.hitos[0];
+// Resumen de la ficha técnica; si el indicador no la tiene, no se muestran las pestañas.
+const ficha = fichas[slug]?.[lang];
 const frase = (h) => h[`texto_${lang}`] || t.cumplio(h.aliado, d.config.roles.find((r) => r.id === h.rol)[`largo_${lang}`]);
 ---
 <Base lang={lang} seccion="indicadores" pagina={`indicadores/${slug}`} titulo={ind[lang]} descripcion={descripciones[slug]?.[lang]} esEjemplo={d.esEjemplo}>
@@ -31,8 +34,39 @@ const frase = (h) => h[`texto_${lang}`] || t.cumplio(h.aliado, d.config.roles.fi
     </div>
   </section>
 
+  {ficha && (
+    <div class="pestanas" data-tabs="ficha">
+      <div class="cont" role="tablist">
+        <button role="tab" data-tab="avance" aria-selected="true">{t.tabAvance}</button>
+        <button role="tab" data-tab="sobre" aria-selected="false">{t.tabSobre}</button>
+      </div>
+    </div>
+  )}
+
   <section class="seccion">
     <div class="cont">
+      {ficha && (
+        <div class="sobre" data-panel="ficha:sobre">
+          <div class="sobre-txt">
+            <h2 class="sub">{t.fMide}</h2>
+            {ficha.mide.map((p) => <p>{p}</p>)}
+            <h2 class="sub">{t.fCalculo}</h2>
+            <ol class="pasos-calc">{ficha.calculo.map((p) => <li>{p}</li>)}</ol>
+            <h2 class="sub">{t.fRle}</h2>
+            <p>{ficha.rle}</p>
+          </div>
+          <aside class="sobre-lado">
+            <div class="marco">
+              <div class="eyebrow">{t.fMarco}</div>
+              <p>{ficha.marco}</p>
+            </div>
+            <h3>{t.fDatos}</h3>
+            <ul class="fuentes">{ficha.datos.map(([quien, que]) => <li><b>{quien}</b> {que}</li>)}</ul>
+          </aside>
+        </div>
+      )}
+
+      <div data-panel="ficha:avance">
       <ol class="pasos-ficha">
         {ind.roles.map((r, i) => {
           const sin = r.compromisos.filter((c) => !c.aliado).length;
@@ -64,6 +98,7 @@ const frase = (h) => h[`texto_${lang}`] || t.cumplio(h.aliado, d.config.roles.fi
         ))}
         {!ind.hitos.length && !ind.previstos.length && <li class="previsto"><div>{t.sinNovedades}</div></li>}
       </ul>
+      </div>
 
       <nav class="entre">
         {ant ? <a href={ruta(lang, `indicadores/${ant.slug}`)}><small>← {t.anterior}</small>{ant.id}. {ant[lang]}</a> : <span />}
@@ -72,3 +107,19 @@ const frase = (h) => h[`texto_${lang}`] || t.cumplio(h.aliado, d.config.roles.fi
     </div>
   </section>
 </Base>
+
+<script>
+  // Pestañas Avance / Sobre el indicador. Sin JavaScript se ven las dos secciones, una tras otra.
+  document.querySelectorAll('[data-tabs="ficha"]').forEach((g) => {
+    const botones = g.querySelectorAll('[data-tab]');
+    const elegir = (id) => {
+      botones.forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === id)));
+      document.querySelectorAll('[data-panel^="ficha:"]').forEach((p) => { p.hidden = p.dataset.panel !== `ficha:${id}`; });
+    };
+    botones.forEach((b) => b.addEventListener('click', () => {
+      elegir(b.dataset.tab);
+      history.replaceState(null, '', b.dataset.tab === 'sobre' ? '#sobre' : location.pathname);
+    }));
+    elegir(location.hash === '#sobre' ? 'sobre' : 'avance');
+  });
+</script>

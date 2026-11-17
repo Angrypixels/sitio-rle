@@ -1,0 +1,280 @@
+{
+  "ecosistemas-naturales": {
+    "es": {
+      "marco": "Indicador de cabecera A.2 del Marco Mundial de Biodiversidad Kunming-Montreal (Objetivo A y Meta 1).",
+      "mide": [
+        "Cuantifica la superficie de ecosistemas naturales y seminaturales del país y sigue cómo cambia frente a la expansión de ecosistemas intensamente modificados. Se expresa como proporción del territorio nacional y se desagrega por reino, bioma y tipo de ecosistema.",
+        "Un aumento entre períodos indica expansión neta de ecosistemas naturales; una disminución, conversión neta. Incluye los ecosistemas seminaturales porque conservan buena parte de su biodiversidad y de sus funciones ecológicas."
+      ],
+      "calculo": [
+        "Se delimitan tipos de ecosistemas que no se superponen, a partir del Mapa de Ecosistemas Continentales, Costeros y Marinos de Colombia.",
+        "Para cada tipo se registran su extensión inicial, los aumentos y las reducciones del período.",
+        "Las clases nacionales se homologan con el nivel 3 de la Tipología Global de Ecosistemas de la UICN.",
+        "El resultado se reporta en unidades de área y como porcentaje del territorio nacional."
+      ],
+      "rle": "Las series de extensión permiten medir cuánto se ha reducido, o podría reducirse, la distribución de cada ecosistema en tres ventanas: los últimos 50 años (A1), un período de 50 años que incluya el presente y el futuro (A2) y desde 1750 (A3). Esa reducción se compara con los umbrales de la UICN para asignar la categoría de amenaza. La extensión también alimenta el criterio B, que mide qué tan restringida es la distribución actual.",
+      "datos": [
+        ["IDEAM", "clima, coberturas de la tierra y ecosistemas acuáticos continentales"],
+        ["Instituto Humboldt", "componente biótico y mapa de unidades bióticas"],
+        ["INVEMAR", "ecosistemas marinos"],
+        ["IGAC", "geopedología y suelos"],
+        ["SINCHI", "ecosistemas de la Amazonia"],
+        ["IIAP", "ecosistemas del Chocó biogeográfico"],
+        ["DANE", "cuenta ambiental de extensión de los ecosistemas"]
+      ]
+    },
+    "en": {
+      "marco": "Headline indicator A.2 of the Kunming-Montreal Global Biodiversity Framework (Goal A and Target 1).",
+      "mide": [
+        "Measures the area of natural and semi-natural ecosystems in the country and tracks how it changes as heavily modified ecosystems expand. It is expressed as a share of the national territory and broken down by realm, biome and ecosystem type.",
+        "An increase between periods means net expansion of natural ecosystems; a decrease means net conversion. Semi-natural ecosystems are included because they retain much of their biodiversity and ecological functions."
+      ],
+      "calculo": [
+        "Non-overlapping ecosystem types are delineated from the Map of Continental, Coastal and Marine Ecosystems of Colombia.",
+        "For each type, the initial extent, gains and losses over the period are recorded.",
+        "National classes are matched to level 3 of the IUCN Global Ecosystem Typology.",
+        "Results are reported in area units and as a percentage of the national territory."
+      ],
+      "rle": "Extent time series show how much the distribution of each ecosystem has declined, or could decline, over three windows: the past 50 years (A1), any 50-year period including the present and future (A2), and since 1750 (A3). That decline is compared with IUCN thresholds to assign a threat category. Extent also feeds criterion B, which measures how restricted the current distribution is.",
+      "datos": [
+        ["IDEAM", "climate, land cover and inland aquatic ecosystems"],
+        ["Instituto Humboldt", "biotic component and map of biotic units"],
+        ["INVEMAR", "marine ecosystems"],
+        ["IGAC", "geopedology and soils"],
+        ["SINCHI", "Amazon ecosystems"],
+        ["IIAP", "Chocó biogeographic region ecosystems"],
+        ["DANE", "environmental account of ecosystem extent"]
+      ]
+    }
+  },
+  "regulacion-hidrica": {
+    "es": {
+      "marco": "Componente del indicador de cabecera del Objetivo B y la Meta 11 del Marco Mundial de Biodiversidad Kunming-Montreal, sobre los servicios de los ecosistemas.",
+      "mide": [
+        "La regulación hídrica es la capacidad de los ecosistemas para modular el flujo del agua: amortiguar crecientes, recargar acuíferos y sostener los caudales. En Colombia se mide con el Índice de Retención y Regulación Hídrica (IRH) del IDEAM, que forma parte de los Estudios Nacionales del Agua.",
+        "El IRH va de 0 a 1. El IDEAM lo interpreta en cinco rangos: muy alta (más de 0,85), alta (0,75 a 0,85), moderada (0,65 a 0,75), baja (0,50 a 0,65) y muy baja (menos de 0,50)."
+      ],
+      "calculo": [
+        "Se toman las series históricas de caudales medios diarios de cada estación hidrológica.",
+        "Con ellas se construye la curva de duración de caudales y se calcula el caudal medio.",
+        "El IRH es la relación entre el volumen bajo la línea de caudal medio y el volumen total bajo la curva.",
+        "Un valor cercano a 1 indica caudales más homogéneos y un régimen más estable."
+      ],
+      "rle": "Sirve para el criterio C, degradación del ambiente abiótico. Para cada ecosistema se define un régimen hidrológico de referencia; la desviación del IRH frente a esa referencia se convierte en severidad de la degradación, se combina con la proporción del ecosistema afectada y se compara con los umbrales de la UICN.",
+      "datos": [
+        ["IDEAM", "caudales medios diarios, evapotranspiración, curvas de duración de caudales, unidades hidrográficas y Mapa de Ecosistemas"],
+        ["IGAC", "modelo digital de elevación"]
+      ]
+    },
+    "en": {
+      "marco": "Component of the headline indicator for Goal B and Target 11 of the Kunming-Montreal Global Biodiversity Framework, on ecosystem services.",
+      "mide": [
+        "Water regulation is the capacity of ecosystems to modulate water flow: buffering floods, recharging aquifers and sustaining river flows. In Colombia it is measured with IDEAM's Water Retention and Regulation Index (IRH), part of the National Water Studies.",
+        "The IRH ranges from 0 to 1. IDEAM reads it in five bands: very high (above 0.85), high (0.75 to 0.85), moderate (0.65 to 0.75), low (0.50 to 0.65) and very low (below 0.50)."
+      ],
+      "calculo": [
+        "Historical series of mean daily flows are taken from each hydrological station.",
+        "They are used to build the flow duration curve and calculate the mean flow.",
+        "The IRH is the ratio between the volume below the mean-flow line and the total volume under the curve.",
+        "A value close to 1 indicates more even flows and a more stable regime."
+      ],
+      "rle": "It is used for criterion C, abiotic degradation. A reference hydrological regime is defined for each ecosystem; the IRH's departure from that reference is turned into severity of degradation, combined with the share of the ecosystem affected and compared with IUCN thresholds.",
+      "datos": [
+        ["IDEAM", "mean daily flows, evapotranspiration, flow duration curves, hydrographic units and Ecosystem Map"],
+        ["IGAC", "digital elevation model"]
+      ]
+    }
+  },
+  "invasoras": {
+    "es": {
+      "marco": "Indicador de cabecera 6.1 de la Meta 6 del Marco Mundial de Biodiversidad Kunming-Montreal e indicador de la Meta Nacional 3 del Plan de Acción de Biodiversidad.",
+      "mide": [
+        "Estima cuántas especies exóticas invasoras nuevas logran formar poblaciones autosostenibles en el país cada año. Su seguimiento permite saber si las medidas para prevenir introducciones y controlar las vías de ingreso están funcionando.",
+        "Se interpreta comparando la tasa del período de reporte con la del período de referencia: una disminución indica avances en prevención. Los registros observados no equivalen a la tasa real, porque un aumento puede deberse a más búsqueda o a mejor detección."
+      ],
+      "calculo": [
+        "Se parte de una lista validada de especies exóticas invasoras establecidas en el país.",
+        "Para cada especie se documenta la fecha de introducción o el año de su primer registro.",
+        "Con esas fechas se arma una serie de nuevos establecimientos por año.",
+        "La serie se modela para corregir el retraso entre introducción y detección y los cambios en el esfuerzo de muestreo. El resultado es el número esperado de establecimientos por año, con su incertidumbre."
+      ],
+      "rle": "Podría ser un insumo complementario para el criterio D, disrupción de procesos e interacciones bióticas. Pero la tasa nacional no mide por sí sola la degradación de cada ecosistema: antes hay que desarrollar y validar métodos para ubicar por ecosistema la distribución, la abundancia y el impacto de las especies invasoras. Su uso en el RLe no es automático.",
+      "datos": [
+        ["Minambiente", "listados oficiales y regulación nacional"],
+        ["Instituto Humboldt", "bases curadas de fauna y flora exótica, invasividad e impactos"],
+        ["SiB Colombia", "registros de especies georreferenciados y fechados"],
+        ["INVEMAR", "especies marinas y costeras introducidas"],
+        ["DIMAR", "gestión de agua de lastre y rutas de embarcaciones"],
+        ["AUNAP", "permisos y registros de especies acuáticas introducidas"],
+        ["Autoridades ambientales y PNN", "detecciones, monitoreo y control"],
+        ["Fuentes internacionales", "GRIIS, OBIS y la base mundial de primeros registros de especies exóticas"]
+      ]
+    },
+    "en": {
+      "marco": "Headline indicator 6.1 for Target 6 of the Kunming-Montreal Global Biodiversity Framework, and an indicator for National Target 3 of Colombia's Biodiversity Action Plan.",
+      "mide": [
+        "Estimates how many new invasive alien species form self-sustaining populations in the country each year. Tracking it shows whether measures to prevent introductions and control pathways are working.",
+        "It is read by comparing the rate for the reporting period with that of the reference period: a decrease indicates progress in prevention. Observed records are not the true rate, since an increase may reflect more searching or better detection."
+      ],
+      "calculo": [
+        "The starting point is a validated list of invasive alien species established in the country.",
+        "For each species, the introduction date or the year of its first record is documented.",
+        "These dates are used to build a series of new establishments per year.",
+        "The series is modelled to correct for the lag between introduction and detection and for changes in sampling effort. The result is the expected number of establishments per year, with its uncertainty."
+      ],
+      "rle": "It could be a complementary input for criterion D, disruption of biotic processes and interactions. But the national rate does not on its own measure the degradation of each ecosystem: methods must first be developed and validated to map the distribution, abundance and impact of invasive species by ecosystem. Its use in the RLE is not automatic.",
+      "datos": [
+        ["Minambiente", "official lists and national regulation"],
+        ["Instituto Humboldt", "curated databases of alien fauna and flora, invasiveness and impacts"],
+        ["SiB Colombia", "georeferenced, dated species records"],
+        ["INVEMAR", "introduced marine and coastal species"],
+        ["DIMAR", "ballast water management and shipping routes"],
+        ["AUNAP", "permits and records of introduced aquatic species"],
+        ["Environmental authorities and PNN", "detections, monitoring and control"],
+        ["International sources", "GRIIS, OBIS and the global first records database of alien species"]
+      ]
+    }
+  },
+  "rli": {
+    "es": {
+      "marco": "Indicador de cabecera A.3 del Marco Mundial de Biodiversidad Kunming-Montreal.",
+      "mide": [
+        "Sintetiza la tendencia del riesgo de extinción de un conjunto de especies a partir de sus categorías en la Lista Roja de la UICN. Solo cuenta los cambios genuinos de categoría, por deterioro o recuperación, y excluye los que vienen de nueva información o de revisiones taxonómicas.",
+        "Va de 0 (todas las especies extintas) a 1 (todas en Preocupación Menor); una tendencia descendente indica deterioro. Solo cambia cuando una especie pasa de una categoría a otra, por eso responde con rezago y no sirve por sí solo a escala de sitio.",
+        "En Colombia, el Instituto Humboldt lo calculó en 2016 para 6.165 especies con evaluaciones globales y, después, para 1.718 especies de aves comparando las evaluaciones nacionales de 2002 y 2016."
+      ],
+      "calculo": [
+        "Se toman grupos taxonómicos completos, o muestras representativas, evaluados en al menos dos momentos.",
+        "Se identifican los cambios genuinos de categoría entre una evaluación y otra.",
+        "Se calcula el índice para cada momento y se compara su tendencia.",
+        "Para darle dimensión espacial se usa el índice STAR, que combina por ecosistema la presencia de especies amenazadas, la parte de su hábitat incluida en él y su categoría de riesgo."
+      ],
+      "rle": "Aporta al criterio D, disrupción de procesos e interacciones bióticas. Los valores del RLI y de STAR se comparan con una condición de referencia de cada ecosistema y se traducen en extensión y severidad de la degradación biótica. STAR no asigna por sí solo la categoría: se vincula con variables del funcionamiento del ecosistema, como la polinización o la dispersión de semillas.",
+      "datos": [
+        ["SiB Colombia", "observaciones biológicas de museos, autoridades, academia y ciencia participativa"],
+        ["Instituto Humboldt", "categorías de amenaza de los libros rojos"],
+        ["Minambiente", "resoluciones oficiales de especies amenazadas"],
+        ["AUNAP", "estadísticas pesqueras y especies aprovechadas"],
+        ["PNN", "monitoreo de fauna y flora en áreas protegidas"],
+        ["Invías", "mortalidad de fauna en las vías"],
+        ["Academia y ONG", "monitoreos locales y proyectos con especies amenazadas"]
+      ]
+    },
+    "en": {
+      "marco": "Headline indicator A.3 of the Kunming-Montreal Global Biodiversity Framework.",
+      "mide": [
+        "Summarises the trend in extinction risk of a set of species based on their IUCN Red List categories. It only counts genuine category changes, due to deterioration or recovery, and excludes those arising from new information or taxonomic revisions.",
+        "It ranges from 0 (all species extinct) to 1 (all Least Concern); a downward trend indicates deterioration. It only changes when a species moves between categories, so it responds with a lag and is not suitable on its own at site level.",
+        "In Colombia, Instituto Humboldt calculated it in 2016 for 6,165 species using global assessments and later for 1,718 bird species by comparing the 2002 and 2016 national assessments."
+      ],
+      "calculo": [
+        "Complete taxonomic groups, or representative samples, assessed at least twice are used.",
+        "Genuine category changes between assessments are identified.",
+        "The index is calculated for each point in time and its trend compared.",
+        "To add a spatial dimension, the STAR metric combines, for each ecosystem, the presence of threatened species, the share of their habitat within it and their risk category."
+      ],
+      "rle": "It contributes to criterion D, disruption of biotic processes and interactions. RLI and STAR values are compared with a reference condition for each ecosystem and translated into extent and severity of biotic degradation. STAR does not assign the category on its own: it is linked to variables of ecosystem functioning, such as pollination or seed dispersal.",
+      "datos": [
+        ["SiB Colombia", "biological observations from museums, authorities, academia and citizen science"],
+        ["Instituto Humboldt", "threat categories from the red data books"],
+        ["Minambiente", "official resolutions on threatened species"],
+        ["AUNAP", "fisheries statistics and harvested species"],
+        ["PNN", "fauna and flora monitoring in protected areas"],
+        ["Invías", "wildlife road mortality"],
+        ["Academia and NGOs", "local monitoring and threatened-species projects"]
+      ]
+    }
+  },
+  "polinizacion": {
+    "es": {
+      "marco": "Se relaciona con el indicador de cabecera del Objetivo B y la Meta 11 del Marco Mundial de Biodiversidad Kunming-Montreal, que trata la polinización como servicio a las personas. Para el RLe se evalúa como función del ecosistema.",
+      "mide": [
+        "La polinización como función ecosistémica es la interacción entre plantas y animales que transporta el polen y permite que las plantas se reproduzcan. De ella dependen la producción de frutos y semillas, la regeneración de la vegetación y la estructura del ecosistema.",
+        "No se trata solo de cuántos polinizadores hay, sino de la interacción efectiva entre la planta y el animal que la poliniza: su frecuencia, su efectividad, la diversidad de polinizadores y la estructura de las redes planta-polinizador.",
+        "Se evalúa como función y no como servicio porque limitarse a los cultivos dejaría por fuera muchas relaciones entre plantas silvestres y polinizadores que son esenciales para la persistencia de los ecosistemas."
+      ],
+      "calculo": [
+        "Se seleccionan parejas planta-polinizador representativas.",
+        "Con registros georreferenciados se modela la distribución de cada especie.",
+        "Los modelos se cruzan y el área donde coinciden se usa como aproximación a la ocurrencia potencial de la interacción.",
+        "Esa área se compara con una condición de referencia para medir cuánto se ha perdido."
+      ],
+      "rle": "Aporta al criterio D. La pérdida del área donde plantas y polinizadores pueden coincidir se lee como degradación de procesos bióticos; cuando afecta una parte importante del ecosistema con alta severidad, aumenta su riesgo de colapso. La segunda versión de la Lista Roja de Ecosistemas de Colombia ya usó este enfoque. El resultado no mide una pérdida económica, sino la de los procesos que sostienen la regeneración y la identidad del ecosistema.",
+      "datos": [
+        ["Minambiente", "Iniciativa Colombiana de Polinizadores y listados de especies amenazadas"],
+        ["Instituto Humboldt", "Índice de Huella Espacial Humana, listados planta-animal y BioModelos"],
+        ["SiB Colombia", "registros de especies e interacciones planta-animal"],
+        ["IDEAM", "Mapa de Ecosistemas, coberturas de la tierra y clima"],
+        ["SINCHI, IIAP e INVEMAR", "biodiversidad e interacciones en sus regiones"],
+        ["Fuentes internacionales", "GloBI, Mangal, Web of Life, BIEN, WorldClim y CHELSA, entre otras"]
+      ]
+    },
+    "en": {
+      "marco": "Related to the headline indicator for Goal B and Target 11 of the Kunming-Montreal Global Biodiversity Framework, which treats pollination as a service to people. For the RLE it is assessed as an ecosystem function.",
+      "mide": [
+        "Pollination as an ecosystem function is the interaction between plants and animals that moves pollen and allows plants to reproduce. Fruit and seed production, vegetation regeneration and ecosystem structure depend on it.",
+        "It is not just about how many pollinators there are, but about the effective interaction between a plant and the animal that pollinates it: its frequency, its effectiveness, pollinator diversity and the structure of plant-pollinator networks.",
+        "It is assessed as a function rather than a service because focusing on crops alone would leave out many interactions between wild plants and pollinators that are essential for ecosystems to persist."
+      ],
+      "calculo": [
+        "Representative plant-pollinator pairs are selected.",
+        "The distribution of each species is modelled from georeferenced records.",
+        "The models are overlaid and the area where they coincide is used as a proxy for where the interaction can potentially occur.",
+        "That area is compared with a reference condition to measure how much has been lost."
+      ],
+      "rle": "It contributes to criterion D. Loss of the area where plants and pollinators can co-occur is read as degradation of biotic processes; when it affects a large part of the ecosystem with high severity, it raises the risk of collapse. The second version of Colombia's Red List of Ecosystems already used this approach. The result does not measure an economic loss, but the loss of processes that sustain the ecosystem's regeneration and identity.",
+      "datos": [
+        ["Minambiente", "Colombian Pollinator Initiative and threatened species lists"],
+        ["Instituto Humboldt", "Human Footprint Index, plant-animal lists and BioModelos"],
+        ["SiB Colombia", "species records and plant-animal interactions"],
+        ["IDEAM", "Ecosystem Map, land cover and climate"],
+        ["SINCHI, IIAP and INVEMAR", "biodiversity and interactions in their regions"],
+        ["International sources", "GloBI, Mangal, Web of Life, BIEN, WorldClim and CHELSA, among others"]
+      ]
+    }
+  },
+  "beri": {
+    "es": {
+      "marco": "Indicador de componente de la Meta 8 del Marco Mundial de Biodiversidad Kunming-Montreal, sobre biodiversidad y cambio climático.",
+      "mide": [
+        "Estima la capacidad de los paisajes para retener su diversidad de especies frente al cambio climático proyectado. Esa capacidad depende de que haya hábitat suficiente y rutas funcionales para que las comunidades biológicas se reorganicen y se desplacen hacia zonas donde persisten condiciones compatibles.",
+        "Va de 0 a 1. Los valores altos indican paisajes con mucho hábitat conectado y climáticamente compatible; los bajos, zonas donde la transformación, la fragmentación o la desaparición de climas análogos reducen esa capacidad. Ayuda a identificar refugios climáticos, corredores potenciales y áreas vulnerables.",
+        "En Colombia puede apoyar la evaluación de la alta montaña y de las transiciones andino-amazónicas, donde las condiciones climáticas se desplazan en altitud."
+      ],
+      "calculo": [
+        "Para cada unidad del territorio se identifica el hábitat accesible que podría mantener comunidades biológicas similares.",
+        "Se evalúa la conectividad de ese hábitat bajo distintos escenarios de cambio climático.",
+        "El resultado se compara con una referencia de hábitat continuo, íntegro y sin cambio climático.",
+        "Al integrar varios escenarios se incorpora la incertidumbre y se obtiene una estimación conservadora."
+      ],
+      "rle": "Es un insumo potencial para el criterio E, análisis cuantitativo de la probabilidad de colapso, que no se calculó en la evaluación nacional de 2017. Un valor del BERI no equivale a una probabilidad de colapso: hace falta un modelo que relacione el BERI y otros procesos con esa probabilidad antes de aplicar los umbrales de la UICN.",
+      "datos": [
+        ["SiB Colombia", "registros georreferenciados de plantas, invertebrados y vertebrados"],
+        ["Instituto Humboldt", "Índice de Huella Espacial Humana, estructura forestal y mapas de BioModelos"],
+        ["IDEAM", "coberturas de la tierra, monitoreo de bosques y carbono, escenarios de cambio climático"],
+        ["IGAC", "relieve, modelo digital de terreno y suelos"]
+      ]
+    },
+    "en": {
+      "marco": "Component indicator for Target 8 of the Kunming-Montreal Global Biodiversity Framework, on biodiversity and climate change.",
+      "mide": [
+        "Estimates the capacity of landscapes to retain their species diversity under projected climate change. That capacity depends on there being enough habitat and functional pathways for biological communities to reorganise and move towards areas where compatible conditions persist.",
+        "It ranges from 0 to 1. High values indicate landscapes with plenty of connected, climatically compatible habitat; low values, areas where transformation, fragmentation or the loss of analogous climates reduce that capacity. It helps identify climate refugia, potential corridors and vulnerable areas.",
+        "In Colombia it can support the assessment of high mountains and Andes-Amazon transitions, where climatic conditions are shifting upslope."
+      ],
+      "calculo": [
+        "For each spatial unit, the accessible habitat that could sustain similar biological communities is identified.",
+        "The connectivity of that habitat is assessed under several climate change scenarios.",
+        "The result is compared with a reference of continuous, intact habitat with no climate change.",
+        "Combining several scenarios captures uncertainty and gives a conservative estimate."
+      ],
+      "rle": "It is a potential input for criterion E, quantitative analysis of the probability of collapse, which was not calculated in the 2017 national assessment. A BERI value is not a probability of collapse: a model linking BERI and other processes to that probability is needed before IUCN thresholds can be applied.",
+      "datos": [
+        ["SiB Colombia", "georeferenced records of plants, invertebrates and vertebrates"],
+        ["Instituto Humboldt", "Human Footprint Index, forest structure and BioModelos maps"],
+        ["IDEAM", "land cover, forest and carbon monitoring, climate change scenarios"],
+        ["IGAC", "relief, digital terrain model and soils"]
+      ]
+    }
+  }
+}
