@@ -30,6 +30,9 @@ function publicarSitio() {
  * Hito automático: al cambiar a "cumplido" el estado de un compromiso, agrega la fila
  * correspondiente en la pestaña hitos con la fecha del día y publicar = si.
  * Si ese hito ya existe (mismo indicador, rol y aliado), no lo repite.
+ * Si el compromiso deja de estar cumplido (por ejemplo, se marcó por error), el hito
+ * queda con publicar = no: sale del sitio en la siguiente publicación, pero no se borra.
+ * Si luego vuelve a cumplido, el mismo hito se reactiva con la fecha de ese día.
  * La fecha y los textos se pueden corregir después a mano en la pestaña hitos.
  */
 function onEdit(e) {
@@ -48,19 +51,32 @@ function onEdit(e) {
   // Recorre las filas editadas: sirve igual para una celda que para un bloque pegado.
   for (let f = Math.max(e.range.getRow(), 2); f <= e.range.getLastRow(); f++) {
     const fila = hoja.getRange(f, 1, 1, cab.length).getValues()[0];
-    if (String(fila[cEstado - 1]).trim() !== 'cumplido') continue;
+    const cumplido = String(fila[cEstado - 1]).trim() === 'cumplido';
     const nuevo = { fecha: hoy, indicador_id: fila[col('indicador_id') - 1], rol: fila[col('rol') - 1], aliado_id: fila[col('aliado_id') - 1], estado: 'cumplido', publicar: 'si' };
 
     const datos = hitos.getRange(1, 1, Math.max(hitos.getLastRow(), 1), cabH.length).getValues();
     const igual = (h, n) => String(h[colH(n) - 1]).trim() === String(nuevo[n]).trim();
-    if (datos.some((h, i) => i > 0 && igual(h, 'indicador_id') && igual(h, 'rol') && igual(h, 'aliado_id'))) continue;
+    const previo = datos.findIndex((h, i) => i > 0 && igual(h, 'indicador_id') && igual(h, 'rol') && igual(h, 'aliado_id')) + 1;
+    const fecha_ = (r) => { hitos.getRange(r, colH('fecha')).setValue(hoy).setNumberFormat('yyyy-mm-dd'); };
+
+    if (!cumplido) {
+      // Dejó de estar cumplido: el hito se oculta del sitio, sin borrar la fila.
+      if (previo && colH('publicar')) hitos.getRange(previo, colH('publicar')).setValue('no');
+      continue;
+    }
+    if (previo) {
+      // Ya existía: si estaba oculto por una corrección, se vuelve a publicar con la fecha de hoy.
+      const pub = colH('publicar') ? hitos.getRange(previo, colH('publicar')) : null;
+      if (pub && String(pub.getValue()).trim().toLowerCase() !== 'si') { pub.setValue('si'); fecha_(previo); }
+      continue;
+    }
 
     // Primera fila sin fecha: así no importa si las columnas de ayuda tienen fórmulas más abajo.
     let destino = datos.findIndex((h, i) => i > 0 && String(h[colH('fecha') - 1]).trim() === '') + 1;
     if (!destino) destino = datos.length + 1;
     Object.keys(nuevo).forEach((n) => { if (colH(n)) hitos.getRange(destino, colH(n)).setValue(nuevo[n]); });
     // La hoja convierte el texto en fecha; este formato evita que se muestre como 17/11/2026, que el sitio no sabe leer.
-    hitos.getRange(destino, colH('fecha')).setNumberFormat('yyyy-mm-dd');
+    fecha_(destino);
   }
 }
 
