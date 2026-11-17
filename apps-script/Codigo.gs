@@ -58,6 +58,8 @@ function onEdit(e) {
     let destino = datos.findIndex((h, i) => i > 0 && String(h[colH('fecha') - 1]).trim() === '') + 1;
     if (!destino) destino = datos.length + 1;
     Object.keys(nuevo).forEach((n) => { if (colH(n)) hitos.getRange(destino, colH(n)).setValue(nuevo[n]); });
+    // La hoja convierte el texto en fecha; este formato evita que se muestre como 17/11/2026, que el sitio no sabe leer.
+    hitos.getRange(destino, colH('fecha')).setNumberFormat('yyyy-mm-dd');
   }
 }
 
