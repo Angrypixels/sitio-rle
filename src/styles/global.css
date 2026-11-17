@@ -110,6 +110,14 @@ h1, h2, h3 { font-family: var(--titulos); margin: 0; line-height: 1.05; text-wra
 .ley li { list-style: none; display: flex; align-items: center; gap: 8px; }
 .ley i { width: 14px; }
 .ley b { font-family: var(--titulos); }
+/* Leyenda de la cadena de pasos: muestras con la misma forma y color que las barras */
+.ley-pasos { margin: 22px 0 0 222px; padding-left: 12px; font-size: 13px; gap: 6px 18px; opacity: 0.85; }
+@media (max-width: 860px) { .ley-pasos { margin-left: 0; padding-left: 0; } }
+.ley-pasos i { width: 26px; height: 10px; aspect-ratio: auto; }
+.p-cumplido { background: var(--musgo); }
+.p-trabajando { background: color-mix(in srgb, var(--mostaza) 55%, var(--gris)); }
+.p-vinculado { box-shadow: inset 0 0 0 2px var(--teal); }
+.p-sin_vincular { background: var(--gris); }
 .boton { display: inline-block; background: var(--mostaza); color: var(--carbon); font: 700 14px var(--titulos); letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 13px 22px; }
 .boton.linea { background: none; box-shadow: inset 0 0 0 2px var(--azul); }
 .boton:hover, .boton.linea:hover { background: var(--azul); color: var(--crema); }
