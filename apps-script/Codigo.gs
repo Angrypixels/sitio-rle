@@ -17,7 +17,8 @@ function publicarSitio() {
     ui.alert('Hay filas por corregir antes de publicar', errores.slice(0, 15).join('\n'), ui.ButtonSet.OK);
     return;
   }
-  const hook = PropertiesService.getScriptProperties().getProperty('DEPLOY_HOOK');
+  // Se quitan espacios y saltos de línea que suelen colarse al pegar la dirección.
+  const hook = (PropertiesService.getScriptProperties().getProperty('DEPLOY_HOOK') || '').replace(/\s/g, '');
   if (!hook) { ui.alert('Falta configurar DEPLOY_HOOK.'); return; }
   const r = UrlFetchApp.fetch(hook, { method: 'post', muteHttpExceptions: true });
   ui.alert(r.getResponseCode() < 300
